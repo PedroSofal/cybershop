@@ -30,6 +30,15 @@ h1 {
   line-height: 1.1;
 }
 
+h1,
+h2,
+h3,
+p,
+button,
+input {
+  color: var(--white-1);
+}
+
 h1:focus,
 h2:focus,
 h3:focus,
@@ -54,6 +63,7 @@ button {
 select:disabled,
 button:disabled {
   cursor: default;
+  color: var(--white-3);
 }
 
 button:focus:not(:active),
