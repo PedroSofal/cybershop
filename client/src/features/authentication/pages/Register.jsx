@@ -69,6 +69,7 @@ function Register() {
         setErrMsg('Nome de usuário já existe');
       } else {
         setErrMsg('Erro inesperado');
+        console.error(err);
       }
       errRef.current.focus();
     } finally {
