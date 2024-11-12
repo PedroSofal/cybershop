@@ -16,11 +16,7 @@ server.use(middlewares);
 server.use(jsonServer.bodyParser);
 
 server.use((req, res, next) => {
-  if (req.method === 'POST' && req.path === '/users') {
-    if (!req.body || typeof req.body.username !== 'string') {
-      return res.status(400).json({ message: 'O campo username deve ser uma string válida.' });
-    }
-
+  if (req.method === 'POST' && req.path === '/users' && req.body.username) {
     const { username } = req.body;
 
     const userExists = router.db.get('users').find({ username }).value();
