@@ -28,7 +28,7 @@ O procedimento de checkout permite a escolha de formas de entrega e métodos de 
 
 ## Projeto Online
 
-Você pode visitar a loja online [aqui](https://cybershop.onrender.com/).
+Você pode visitar a loja online [aqui](https://cybershop-client.onrender.com/).
 
 ## Contribuição
 
