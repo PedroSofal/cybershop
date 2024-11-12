@@ -83,7 +83,7 @@ function SaleCompleted() {
         >pedrosofal@gmail.com</SecButton>
         <div className="flex ai-center gap-200" css={css`& svg { font-size: var(--fs-800); }`}>
           <Link
-            to="https://www.linkedin.com/in/pedro-sofal-2315212a8/"
+            to="https://www.linkedin.com/in/pedrosofal/"
             aria-label="linkedin"
           ><LinkedIn /></Link>
           <Link
