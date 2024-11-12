@@ -41,6 +41,6 @@ Você tem permissão para compartilhar o projeto, desde que atribua o devido cr�
 ## Autor
 
 - Nome: Pedro Sofal
-- LinkedIn: https://www.linkedin.com/in/pedro-sofal-2315212a8/
+- LinkedIn: https://www.linkedin.com/in/pedrosofal/
 - Behance: https://www.behance.net/pedrosofal
 - Email: pedrosofal@gmail.com
