@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "baseUrl": "src",
+    "paths": {
+      "@assets/*": ["assets/*"],
+      "@components/*": ["components/*"],
+      "@banners/*": ["components/ui/banners/*"],
+      "@buttons/*": ["components/ui/buttons/*"],
+      "@forms/*": ["components/ui/forms/*"],
+      "@inputs/*": ["components/ui/inputs/*"],
+      "@containers/*": ["components/ui/containers/*"],
+      "@menus/*": ["components/ui/menus/*"],
+      "@suspended/*": ["components/ui/suspended/*"],
+      "@pages/*": ["pages/*"],
+      "@contexts/*": ["contexts/*"],
+      "@hooks/*": ["hooks/*"],
+      "@utils/*": ["utils/*"],
+      "@data/*": ["data/*"],
+      "@services/*": ["services/*"],
+      "@layouts/*": ["layouts/*"],
+      "@authentication/*": ["features/authentication/*"],
+      "@checkout/*": ["features/checkout/*"],
+      "@shopping-cart/*": ["features/shopping-cart/*"],
+      "@user-profile/*": ["features/user-profile/*"],
+      "@search/*": ["features/search/*"]
+    }
+  },
+  "include": ["src"]
+}

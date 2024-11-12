@@ -1,0 +1,38 @@
+.pos-relative { position: relative; }
+
+.display-contents { display: contents; }
+
+.grid { display: grid; }
+.flex { display: flex; }
+.flex-column { display: flex; flex-direction: column; }
+.flex-wrap { flex-wrap: wrap; }
+
+.ai-center { align-items: center; }
+.ai-end { align-items: end; }
+.jc-center { justify-content: center; }
+.jc-end { justify-content: end; }
+.jc-between { justify-content: space-between; }
+.jc-evenly { justify-content: space-evenly; }
+.ji-center { justify-items: center; }
+
+.gap-050 { gap: var(--ws-050); }
+.gap-100 { gap: var(--ws-100); }
+.gap-200 { gap: var(--ws-200); }
+.gap-300 { gap: var(--ws-300); }
+.gap-400 { gap: var(--ws-400); }
+.gap-500 { gap: var(--ws-500); }
+.gap-600 { gap: var(--ws-600); }
+.gap-700 { gap: var(--ws-700); }
+.gap-800 { gap: var(--ws-800); }
+.gap-900 { gap: var(--ws-900); }
+
+.gap-500-700 { gap: var(--ws-500-700); }
+.gap-200-400 { gap: var(--ws-200-400); }
+
+.text-center { text-align: center; }
+.text-clr-1 { color: var(--white-1) }
+.text-clr-2 { color: var(--white-2) }
+.text-clr-3 { color: var(--white-3) }
+.bold { font-weight: bold; }
+
+hr.faded { opacity: 0.1; }

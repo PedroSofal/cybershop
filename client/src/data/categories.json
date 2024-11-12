@@ -1,0 +1,26 @@
+{
+  "vestuario-masculino": {
+    "name": "men's clothing",
+    "title": "Vestuário Masculino",
+    "originalPath": "/category/men's%20clothing",
+    "path": "/categorias/vestuario-masculino"
+  },
+  "vestuario-feminino": {
+    "name": "women's clothing",
+    "title": "Vestuário Feminino",
+    "originalPath": "/category/women's%20clothing",
+    "path": "/categorias/vestuario-feminino"
+  },
+  "acessorios": {
+    "name": "jewelery",
+    "title": "Acessórios",
+    "originalPath": "/category/jewelery",
+    "path": "/categorias/acessorios"
+  },
+  "eletronicos": {
+    "name": "electronics",
+    "title": "Eletrônicos",
+    "originalPath": "/category/electronics",
+    "path": "/categorias/eletronicos"
+  }
+}

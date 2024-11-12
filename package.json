@@ -1,0 +1,15 @@
+{
+  "name": "cybershop",
+  "version": "1.0.0",
+  "description": "personal project for portfolio",
+  "main": "index.js",
+  "scripts": {
+    "dev": "concurrently \"npm run dev --prefix client\" \"npm run start --prefix server\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Pedro Sofal",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^9.1.0"
+  }
+}

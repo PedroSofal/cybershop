@@ -1,0 +1,60 @@
+.elv-2 .elv-2 .elv-hover:not(:disabled):hover,
+.elv-2 .elv-2 .elv .elv-hover:not(:disabled):hover,
+.elv .elv .elv .elv.elv--focus:focus,
+.elv .elv label.elv.elv--focus:has(input:checked),
+.elv .elv .elv .elv.elv--hover:not(:disabled):hover,
+.elv .elv .elv .elv .elv-hover:not(:disabled):hover,
+.elv .elv .elv .elv .elv {
+  box-shadow: var(--shadow-dp-24);
+  background-color: var(--bg-dp-24);
+}
+
+.elv-2 .elv-2,
+.elv-2 .elv-2 .elv,
+.elv .elv .elv-2 .elv-hover:not(:disabled):hover,
+.elv .elv .elv.elv--focus:focus,
+.elv label.elv.elv--focus:has(input:checked),
+.elv .elv .elv.elv--hover:not(:disabled):hover,
+.elv .elv .elv .elv-hover:not(:disabled):hover,
+.elv .elv .elv .elv {
+  box-shadow: var(--shadow-dp-12);
+  background-color: var(--bg-dp-12);
+}
+
+.elv-2,
+.elv .elv .elv-hover:not(:disabled):hover,
+.elv .elv.elv--hover:not(:disabled):hover,
+.elv .elv .elv {
+  box-shadow: var(--shadow-dp-6);
+  background-color: var(--bg-dp-6);
+}
+
+.elv .elv .elv.elv--active:not(:disabled):active,
+.elv .elv {
+  box-shadow: var(--shadow-dp-1);
+  background-color: var(--bg-dp-1);
+}
+
+.elv .elv.elv--active:not(:disabled):active,
+.elv {
+  box-shadow: var(--shadow-dp-0);
+  background-color: var(--bg-dp-0);
+}
+
+.elv-hover:not(:disabled):hover {
+  box-shadow: none !important;
+}
+
+.elv--active:not(:disabled):active {
+  box-shadow: inset 2px 2px 4px hsla(253, 20%, 7%, 0.8) !important;
+}
+
+/****** Debugger */
+
+/* .elv { background-color: red; }
+.elv .elv { background-color: blue; }
+.elv .elv .elv { background-color: green; }
+.elv .elv .elv .elv { background-color: yellow; }
+.elv-2 { background-color: orange; }
+.elv-2 .elv-2 { background-color: fuchsia; }
+.elv-2 .elv-2 .elv { background-color: fuchsia; } */

@@ -1,0 +1,103 @@
+:root {
+  --brand-clr-1: hsl(253, 63%, 44%);
+  --link-clr: rgb(131, 180, 255);
+  --error-clr: firebrick;
+  --notification-clr: red;
+  --discount-clr: green;
+  --discount-clr-2: rgb(45, 71, 49);
+
+  --white-1: hsl(253, 20%, 96%);
+  --white-2: hsl(253, 20%, 80%);
+  --white-3: hsl(253, 20%, 53%);
+  
+  --bg-dp-0: hsl(253, 20%, 7%);
+  --bg-dp-1: hsl(253, 20%, 12%);
+  --bg-dp-2: hsl(253, 20%, 13%);
+  --bg-dp-3: hsl(253, 20%, 15%);
+  --bg-dp-4: hsl(253, 20%, 15%);
+  --bg-dp-6: hsl(253, 20%, 17%);
+  --bg-dp-8: hsl(253, 20%, 18%);
+  --bg-dp-12: hsl(253, 20%, 19%);
+  --bg-dp-16: hsl(253, 20%, 20%);
+  --bg-dp-24: hsl(253, 20%, 22%);
+
+  --overlay-gradient-1: rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.051);
+  --overlay-gradient-2: rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3);
+
+  --purple-1:           hsl(253, 63%, 44%);
+  --purple-1-highlight: hsl(253, 63%, 51%);
+  --purple-1-shade:     hsl(253, 63%, 39%);
+  --purple-1-shadow:    hsl(253, 63%, 14%);
+
+  --purple-2:           hsla(253, 63%, 44%, 0.05);
+  --purple-2-highlight: hsla(253, 63%, 44%, 0.3);
+  --purple-2-shadow:    hsla(253, 63%, 8%, 0.7);
+
+  --purple-3:           hsl(253, 100%, 10%);
+  --purple-3-shadow:    hsla(253, 80%, 4%, 0.8);
+
+  /* --overlay-dp-0: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0));
+  --overlay-dp-1: linear-gradient(rgba(255, 255, 255, 0.051), rgba(255, 255, 255, 0.051));
+  --overlay-dp-2: linear-gradient(rgba(255, 255, 255, 0.069), rgba(255, 255, 255, 0.069));
+  --overlay-dp-3: linear-gradient(rgba(255, 255, 255, 0.082), rgba(255, 255, 255, 0.082));
+  --overlay-dp-4: linear-gradient(rgba(255, 255, 255, 0.092), rgba(255, 255, 255, 0.092));
+  --overlay-dp-6: linear-gradient(rgba(255, 255, 255, 0.108), rgba(255, 255, 255, 0.108));
+  --overlay-dp-8: linear-gradient(rgba(255, 255, 255, 0.119), rgba(255, 255, 255, 0.119));
+  --overlay-dp-12: linear-gradient(rgba(255, 255, 255, 0.135), rgba(255, 255, 255, 0.135));
+  --overlay-dp-16: linear-gradient(rgba(255, 255, 255, 0.147), rgba(255, 255, 255, 0.147));
+  --overlay-dp-24: linear-gradient(rgba(255, 255, 255, 0.165), rgba(255, 255, 255, 0.165)); */
+
+  --shadow-dp-0: none;
+  --shadow-dp-1: 0px 2px 1px -1px hsla(253, 20%, 7%, 0.2),0px 1px 1px 0px hsla(253, 20%, 7%, 0.14),0px 1px 3px 0px hsla(253, 20%, 7%, 0.12);
+  --shadow-dp-2: 0px 3px 1px -2px hsla(253, 20%, 7%, 0.2),0px 2px 2px 0px hsla(253, 20%, 7%, 0.14),0px 1px 5px 0px hsla(253, 20%, 7%, 0.12);
+  --shadow-dp-3: 0px 3px 3px -2px hsla(253, 20%, 7%, 0.2),0px 3px 4px 0px hsla(253, 20%, 7%, 0.14),0px 1px 8px 0px hsla(253, 20%, 7%, 0.12);
+  --shadow-dp-4: 0px 2px 4px -1px hsla(253, 20%, 7%, 0.2),0px 4px 5px 0px hsla(253, 20%, 7%, 0.14),0px 1px 10px 0px hsla(253, 20%, 7%, 0.12);
+  --shadow-dp-6: 0px 3px 5px -1px hsla(253, 20%, 7%, 0.2),0px 6px 10px 0px hsla(253, 20%, 7%, 0.14),0px 1px 18px 0px hsla(253, 20%, 7%, 0.12);
+  --shadow-dp-8: 0px 5px 5px -3px hsla(253, 20%, 7%, 0.2),0px 8px 10px 1px hsla(253, 20%, 7%, 0.14),0px 3px 14px 2px hsla(253, 20%, 7%, 0.12);
+  --shadow-dp-12: 0px 7px 8px -4px hsla(253, 20%, 7%, 0.2),0px 12px 17px 2px hsla(253, 20%, 7%, 0.14),0px 5px 22px 4px hsla(253, 20%, 7%, 0.12);
+  --shadow-dp-16: 0px 8px 10px -5px hsla(253, 20%, 7%, 0.2),0px 16px 24px 2px hsla(253, 20%, 7%, 0.14),0px 6px 30px 5px hsla(253, 20%, 7%, 0.12);
+  --shadow-dp-24: 0px 11px 15px -7px hsla(253, 20%, 7%, 0.2),0px 24px 38px 3px hsla(253, 20%, 7%, 0.14),0px 9px 46px 8px hsla(253, 20%, 7%, 0.12);
+
+  /* @link https://utopia.fyi/space/calculator?c=320,13,1.125,1240,16,1.2,5,3,&s=0.8|0.6|0.4|0.2,1.5|2|3|4,s-l&g=s,l,xl,12 */
+  --ws-050: clamp(0.1875rem, 0.1875rem + 0vw, 0.1875rem);
+  --ws-100: clamp(0.3125rem, 0.2908rem + 0.1087vw, 0.375rem);
+  --ws-200: clamp(0.5rem, 0.4565rem + 0.2174vw, 0.625rem);
+  --ws-300: clamp(0.625rem, 0.5598rem + 0.3261vw, 0.8125rem);
+  --ws-400: clamp(0.8125rem, 0.7473rem + 0.3261vw, 1rem);
+  --ws-500: clamp(1.25rem, 1.163rem + 0.4348vw, 1.5rem);
+  --ws-600: clamp(1.625rem, 1.4946rem + 0.6522vw, 2rem);
+  --ws-700: clamp(2.4375rem, 2.2418rem + 0.9783vw, 3rem);
+  --ws-800: clamp(3.25rem, 2.9891rem + 1.3043vw, 4rem);
+
+  --ws-200-400: clamp(0.5rem, 0.3261rem + 0.8696vw, 1rem);
+  --ws-300-600: clamp(0.625rem, 0.1467rem + 2.3913vw, 2rem);
+  --ws-300-700: clamp(0.625rem, -0.2011rem + 4.1304vw, 3rem);
+  --ws-400-500: clamp(0.8125rem, 0.5734rem + 1.1957vw, 1.5rem);
+  --ws-400-600: clamp(0.8125rem, 0.3995rem + 2.0652vw, 2rem);
+  --ws-400-700: clamp(0.8125rem, 0.0516rem + 3.8043vw, 3rem);
+  --ws-500-700: clamp(1.25rem, 0.6413rem + 3.0435vw, 3rem);
+  --ws-500-800: clamp(1.25rem, 0.2935rem + 4.7826vw, 4rem);
+
+  /* @link https://utopia.fyi/type/calculator?c=320,14,1.125,1240,16,1.2,5,3,&s=0.8|0.6|0.4|0.2,1.5|2|3|4,s-m&g=s,l,xl,12 */
+  --fs-100: clamp(0.5787rem, 0.627rem + -0.0623vw, 0.6145rem);
+  --fs-200: clamp(0.6914rem, 0.6903rem + 0.0054vw, 0.6944rem);
+  --fs-300: clamp(0.7778rem, 0.7585rem + 0.0966vw, 0.8333rem);
+  --fs-400: clamp(0.875rem, 0.8315rem + 0.2174vw, 1rem);
+  --fs-500: clamp(0.9844rem, 0.9094rem + 0.375vw, 1.2rem);
+  --fs-600: clamp(1.1074rem, 0.9917rem + 0.5784vw, 1.44rem);
+  --fs-700: clamp(1.2458rem, 1.0781rem + 0.8385vw, 1.728rem);
+  --fs-800: clamp(1.4016rem, 1.1678rem + 1.1687vw, 2.0736rem);
+  --fs-900: clamp(1.5768rem, 1.2597rem + 1.5853vw, 2.4883rem);
+
+  --border-radius: 8px;
+  
+  --transition-1: 150ms ease;
+  --transition-2: 300ms ease;
+
+  --input-fs: var(--fs-500);
+  --input-padding: max(var(--ws-300), 0.8rem) var(--ws-400);
+  --input-transition: background-color var(--transition-1), box-shadow var(--transition-1);
+  --input-error-outline: 2px solid var(--error-clr);
+
+  --container-padding: var(--ws-600) var(--ws-400-700);
+}

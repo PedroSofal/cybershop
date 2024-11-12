@@ -1,0 +1,14 @@
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-dp-0: #fff;
+    --bg-dp-1: #fff;
+    --bg-dp-2: #fff;
+    --bg-dp-3: #fff;
+    --bg-dp-4: #fff;
+    --bg-dp-6: #fff;
+    --bg-dp-8: #fff;
+    --bg-dp-12: #fff;
+    --bg-dp-16: #fff;
+    --bg-dp-24: #fff;
+  }
+}

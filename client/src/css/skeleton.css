@@ -1,0 +1,21 @@
+.skeletonLoading select,
+.skeletonLoading input {
+  background-color: var(--bg-dp-4);
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+input::placeholder {
+  font-family: "Oxanium", sans-serif;
+}
+
+@keyframes pulse {
+  0% {
+    background-color: var(--bg-dp-4);
+  }
+  50% {
+    background-color: var(--bg-dp-24);
+  }
+  100% {
+    background-color: var(--bg-dp-4);
+  }
+}
