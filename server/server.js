@@ -2,13 +2,20 @@ import jsonServer from 'json-server';
 import fs from 'fs';
 import path from 'path';
 
+const HOST = process.env.HOST || '0.0.0.0';
+const PORT = process.env.PORT || 3000;
+
 const server = jsonServer.create();
 
-const filePath = path.join(process.cwd(), 'db.json');
-const data = fs.readFileSync(filePath, "utf-8");
-const db = JSON.parse(data);
-const router = jsonServer.router(db);
-// const router = jsonServer.router('db.json');
+let router;
+if (process.env.NODE_ENV = 'development') {
+  router = jsonServer.router('db.json');
+} else {
+  const filePath = path.join(process.cwd(), 'db.json');
+  const data = fs.readFileSync(filePath, "utf-8");
+  const db = JSON.parse(data);
+  router = jsonServer.router(db);
+}
 
 const middlewares = jsonServer.defaults();
 
@@ -52,7 +59,7 @@ server.use(jsonServer.rewriter({
 
 server.use(router);
 
-server.listen(3000, () => {
+server.listen(PORT, HOST, () => {
   console.log(`      
     █     █░▓█████  ██▓     ▄████▄   ▒█████   ███▄ ▄███▓▓█████ 
     ▓█░ █ ░█░▓█   ▀ ▓██▒    ▒██▀ ▀█  ▒██▒  ██▒▓██▒▀█▀ ██▒▓█   ▀ 
@@ -64,6 +71,7 @@ server.listen(3000, () => {
       ░   ░     ░     ░ ░   ░        ░ ░ ░ ▒  ░      ░      ░   
         ░       ░  ░    ░  ░░ ░          ░ ░         ░      ░  ░
                             ░                                   
+    Servidor rodando em http://${HOST}:${PORT}
   `);
 });
 

@@ -45,4 +45,7 @@ export default defineConfig({
       '@search': path.resolve(__dirname, 'src/features/search'),
     },
   },
+  server: {
+    host: true
+  }
 });

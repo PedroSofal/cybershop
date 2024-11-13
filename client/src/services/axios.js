@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export default axios.create({
-  baseURL: 'https://cybershop-server.onrender.com/',
+  baseURL: import.meta.env.VITE_AXIOS_BASE_URL,
   headers: {
     'Content-Type': 'application/json',
     'Accept': 'application/json',
