@@ -70,6 +70,7 @@ function Login() {
         setErrMsg('Erro inesperado');
       }
       errRef.current.focus();
+      console.error(err);
     } finally {
       setIsSubmitting(false);
       setIsAuthLoading(false);
