@@ -8,7 +8,7 @@ const PORT = process.env.PORT || 3000;
 const server = jsonServer.create();
 
 let router;
-if (process.env.NODE_ENV = 'development') {
+if (process.env.NODE_ENV === 'development') {
   router = jsonServer.router('db.json');
 } else {
   const filePath = path.join(process.cwd(), 'db.json');
@@ -73,6 +73,6 @@ server.listen(PORT, HOST, () => {
                             ░                                   
     Servidor rodando em http://${HOST}:${PORT}
   `);
-});
+}); 
 
 export default server;
