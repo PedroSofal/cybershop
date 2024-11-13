@@ -51,7 +51,6 @@ function Login() {
 
     try {
       const response = await axios.get(USERS_URL);
-      console.log(response)
       const user = response.data.find(user => {
         return user.username === formValues.username && user.password === formValues.password;
       });

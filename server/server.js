@@ -8,13 +8,13 @@ const PORT = process.env.PORT || 3000;
 const server = jsonServer.create();
 
 let router;
-if (process.env.NODE_ENV === 'development') {
-  router = jsonServer.router('db.json');
-} else {
+if (process.env.NODE_ENV === 'production') {
   const filePath = path.join(process.cwd(), 'db.json');
   const data = fs.readFileSync(filePath, "utf-8");
   const db = JSON.parse(data);
   router = jsonServer.router(db);
+} else {
+  router = jsonServer.router('db.json');
 }
 
 const middlewares = jsonServer.defaults();
