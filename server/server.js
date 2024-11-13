@@ -2,7 +2,7 @@ import jsonServer from 'json-server';
 import fs from 'fs';
 import path from 'path';
 
-const HOST = process.env.HOST || '0.0.0.0';
+const HOST = process.env.NODE_ENV === 'production' ? '0.0.0.0' : '192.168.1.8';
 const PORT = process.env.PORT || 3000;
 
 const server = jsonServer.create();
