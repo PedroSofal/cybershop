@@ -147,26 +147,24 @@ function ProductPage() {
         <ZipCodeForm label="Calcular frete:" submitSideEffect={submitZipCode} />
       </section>
 
-      {/* <div className="flex-column gap-700"> */}
-        <section css={css`grid-area: image;`}>
-          <ProductImage
-            src={displayedProduct.image}
-            alt={`foto do produto ${displayedProduct.title}`}
-            height="60vh"
-            padding="var(--ws-400)"
-          />
-        </section>
+      <section css={css`grid-area: image;`}>
+        <ProductImage
+          src={displayedProduct.image}
+          alt={`foto do produto ${displayedProduct.title}`}
+          height="60vh"
+          padding="var(--ws-400)"
+        />
+      </section>
 
-        <section css={css`grid-area: desc;`}>
-          <h2 className="section-title">Descrição</h2>
-          <p className="text-clr-2 text-long">{displayedProduct.description}</p>
-        </section>
+      <section css={css`grid-area: desc;`}>
+        <h2 className="section-title">Descrição</h2>
+        <p className="text-clr-2 text-long">{displayedProduct.description}</p>
+      </section>
 
-        <section css={css`grid-area: related;`}>
-          <h2 className="section-title">Produtos relacionados</h2>
-          <RelatedProducts refProduct={displayedProduct} />
-        </section>
-      {/* </div> */}
+      <section css={css`grid-area: related;`}>
+        <h2 className="section-title">Produtos relacionados</h2>
+        <RelatedProducts refProduct={displayedProduct} />
+      </section>
     </main>
 
     <ConfirmationModal

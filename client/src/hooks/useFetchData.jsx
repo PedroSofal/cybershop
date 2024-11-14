@@ -21,7 +21,7 @@ function useFetchData(dataUrl) {
     } finally {
       setIsLoading(false);
     }
-  }, []);
+  }, [dataUrl]);
 
   useEffect(() => {
     fetchData();
