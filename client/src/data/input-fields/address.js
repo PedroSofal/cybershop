@@ -105,6 +105,7 @@ const fields = [
     placeholder: 'XX.XXX-XXX',
     required: true,
     maxLength: 10,
+    inputMode: 'numeric',
     ariaDescribedBy: 'zipCodeNote',
     description: 'Digite um CEP válido',
     isValid: (zipCode) => /^\d{2}[.]\d{3}[-]\d{3}$/.test(zipCode),

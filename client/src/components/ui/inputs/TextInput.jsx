@@ -62,6 +62,7 @@ const TextInput = memo(function Component({
   minLength,
   maxLength,
   pattern,
+  inputMode,
   autoComplete,
   ariaDescribedBy,
   description,
@@ -97,6 +98,7 @@ const TextInput = memo(function Component({
           minLength={minLength}
           maxLength={maxLength}
           pattern={pattern}
+          inputmode={inputMode}
           autoComplete={autoComplete}
           aria-invalid={alertInvalid}
           aria-describedby={alertInvalid ? ariaDescribedBy : null}

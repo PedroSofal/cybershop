@@ -49,7 +49,7 @@ const fields = [
   {
     id: 'tel1',
     label: 'Telefone 1:',
-    type: 'text',
+    type: 'tel',
     placeholder: '(XX) XXXX-XXXX ou (XX) 9XXXX-XXXX',
     required: true,
     maxLength: 15,
@@ -61,7 +61,7 @@ const fields = [
   {
     id: 'tel2',
     label: 'Telefone 2:',
-    type: 'text',
+    type: 'tel',
     placeholder: '(XX) XXXX-XXXX ou (XX) 9XXXX-XXXX',
     required: false,
     maxLength: 15,
