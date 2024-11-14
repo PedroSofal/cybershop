@@ -1,10 +1,11 @@
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { useEffect, useRef, useState } from 'react';
 import SuspendedContent from '@suspended/SuspendedContent';
 import SuspendedButton from '@suspended/SuspendedButton';
 
 function SuspendedOnHover({ button, content, contentStyles, contentRole, linkTo }) {
   const navigate = useNavigate();
+  const location = useLocation();
 
   const buttonRef = useRef();
   const contentRef = useRef();
@@ -20,11 +21,11 @@ function SuspendedOnHover({ button, content, contentStyles, contentRole, linkTo 
 
   useEffect(() => {
     function handleClickOutside(e) {
-      if (contentRef.current.contains(e.target)) {
-        setTimeout(() => {
-          setIsContentOpen(false);
-        }, 200);
-      } else if (!buttonRef.current.contains(e.target)) {
+      if (
+        contentRef.current &&
+        !contentRef.current.contains(e.target) &&
+        !buttonRef.current.contains(e.target)
+      ) {
         setIsContentOpen(false);
       }
     }
@@ -45,6 +46,10 @@ function SuspendedOnHover({ button, content, contentStyles, contentRole, linkTo 
       buttonRef.current.setAttribute('aria-expanded', false);
     }
   }, [isContentOpen]);
+
+  useEffect(() => {
+    setIsContentOpen(false);
+  }, [location.pathname]);
 
   useEffect(() => {
     return () => clearTimeout(timeoutRef.current);
