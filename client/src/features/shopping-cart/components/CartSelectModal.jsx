@@ -4,18 +4,12 @@ import PhotoGallery from '@components/ui/PhotoGallery';
 import { css } from '@emotion/react';
 
 const containerStyles = css`
-  display: flex;
-  flex-direction: column;
-  min-width: 500px;
+  width: min(32rem, 90vw);
   border-radius: var(--border-radius);
   border-top: 4px solid var(--brand-clr-1);
 
   & .modal-section {
     padding: var(--ws-400);
-  }
-
-  & p {
-    max-width: 500px;
   }
 `;
 
@@ -45,7 +39,7 @@ const hiddenRadioStyles = css`
 `;
 
 const galleryStyles = css`
-  padding: var(--ws-400);
+  padding: var(--ws-200-400);
   border-radius: var(--border-radius);
   background-color: white;
 `;
@@ -79,7 +73,7 @@ function CartSelectModal({ onSelect, conflict }) {
           {conflict.map((cartItems, index) => (
             <label key={index} className="flex-column gap-200" css={labelStyles}>
               <div css={galleryStyles}>
-                <PhotoGallery size="70px">
+                <PhotoGallery size="min(10vw, 70px)">
                   {cartItems.map((product, index) => (
                     index < 4 && <img key={index} src={product.image} alt="" />
                   ))}
