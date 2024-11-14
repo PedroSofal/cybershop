@@ -35,7 +35,7 @@ const DATA_URL = '/orders';
 
 const itemStyles = css`
   display: grid;
-  grid-template-columns: calc(min(50px, 5vw) * 2 + 2px + var(--ws-200) + var(--ws-200)) 30% auto auto auto;
+  grid-template-columns: auto 30% auto auto auto;
   align-items: center;
   justify-items: start;
   gap: var(--ws-300-600);
@@ -47,7 +47,7 @@ const itemStyles = css`
   }
 
   @container profileMain (inline-size < 700px) {
-    grid-template-columns: calc(min(50px, 5vw) * 2 + 2px + var(--ws-200) + var(--ws-200)) 45% auto auto;
+    grid-template-columns: auto 45% auto auto;
     font-size: var(--fs-300);
 
     .desktop-only {
