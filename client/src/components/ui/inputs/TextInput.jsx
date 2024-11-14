@@ -26,6 +26,7 @@ const fieldStyles = css`
     font-size: var(--fs-200);
     box-shadow: var(--shadow-1);
     z-index: 1;
+    background-color: var(--bg-dp-24);
   }
 
   & .instructions::before {
@@ -36,6 +37,7 @@ const fieldStyles = css`
     height: 14px;
     top: -7px;
     rotate: 45deg;
+    background-color: var(--bg-dp-24);
   }
 `;
 
@@ -64,6 +66,7 @@ const TextInput = memo(function Component({
   pattern,
   inputMode,
   autoComplete,
+  easy,
   ariaDescribedBy,
   description,
   finished = () => false,
@@ -76,6 +79,7 @@ const TextInput = memo(function Component({
   });
 
   const alertInvalid = userInputState === 'finished-invalid';
+  const showDescription = alertInvalid || (easy && !value && focus);
 
   return (
     <div
@@ -98,7 +102,7 @@ const TextInput = memo(function Component({
           minLength={minLength}
           maxLength={maxLength}
           pattern={pattern}
-          inputmode={inputMode}
+          inputMode={inputMode}
           autoComplete={autoComplete}
           aria-invalid={alertInvalid}
           aria-describedby={alertInvalid ? ariaDescribedBy : null}
@@ -106,8 +110,8 @@ const TextInput = memo(function Component({
         {ariaDescribedBy && description && (
           <p
             id={ariaDescribedBy}
-            className={alertInvalid ? 'instructions' : 'offscreen'}
-            aria-hidden={!alertInvalid}
+            className={showDescription ? 'instructions' : 'offscreen'}
+            aria-hidden={!showDescription}
             aria-live="assertive"
           >
             {description}

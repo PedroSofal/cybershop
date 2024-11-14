@@ -7,6 +7,7 @@ const fields = [
     minLength: 4,
     maxLength: 24,
     autoComplete: 'off',
+    easy: true,
     ariaDescribedBy: 'userNote',
     description:
       <>
@@ -24,6 +25,7 @@ const fields = [
     minLength: 8,
     maxLength: 24,
     autoComplete: 'off',
+    easy: true,
     ariaDescribedBy: 'passwordNote',
     description:
       <>
@@ -32,9 +34,9 @@ const fields = [
       1 letra maiúscula;<br />
       1 letra minúscula;<br />
       1 número;<br />
-      1 dos seguintes caracteres especiais: ! @ # $ % *,
+      1 caracter especial: ! @ . # $ % *
       </>,
-    isValid: (password) => /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%*]).{8,24}$/.test(password),
+    isValid: (password) => /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%*.]).{8,24}$/.test(password),
   },
   {
     id: 'match',
