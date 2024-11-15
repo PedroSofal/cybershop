@@ -1,21 +1,10 @@
 import jsonServer from 'json-server';
-import fs from 'fs';
-import path from 'path';
 
 const HOST = process.env.NODE_ENV === 'production' ? '0.0.0.0' : '192.168.1.8';
 const PORT = process.env.PORT || 3000;
 
 const server = jsonServer.create();
-
-let router;
-if (process.env.NODE_ENV === 'production') {
-  const filePath = path.join(process.cwd(), 'db.json');
-  const data = fs.readFileSync(filePath, "utf-8");
-  const db = JSON.parse(data);
-  router = jsonServer.router(db);
-} else {
-  router = jsonServer.router('db.json');
-}
+const router = jsonServer.router('db.json');
 
 const middlewares = jsonServer.defaults();
 
