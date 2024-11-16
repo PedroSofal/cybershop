@@ -15,7 +15,7 @@ const fieldStyles = css`
   }
 
   input::placeholder {
-    color: var(--white-3);
+    color: var(--text-clr-3);
   }
 
   & .instructions {

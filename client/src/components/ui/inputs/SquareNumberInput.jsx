@@ -6,7 +6,7 @@ const styles = css`
   border-radius: var(--border-radius);
   font-size: var(--input-fs);
   text-align: center;
-  background-color: var(--bg-dp-0);
+  background-color: transparent;
 
   &::-webkit-inner-spin-button {
     -webkit-appearance: none;

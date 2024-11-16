@@ -6,7 +6,7 @@ import { useContext, useEffect, useRef, useState } from 'react';
 import AuthContext from '@authentication/contexts/AuthContext';
 
 // Components
-import SecButton from '@buttons/SecButton';
+import Button from '@buttons/Button';
 import ConfirmationModal from '@components/ConfirmationModal';
 import ServerError from '@components/ui/ServerError';
 
@@ -46,11 +46,11 @@ function Settings() {
     <>
     <h1 className="page-title">Configurações da conta</h1>
     
-    <SecButton
+    <Button
       htmlRef={buttonRef}
       onClick={() => dialogRef.current.showModal()}
       icon={<Delete />}
-    >Excluir Conta</SecButton>
+    >Excluir Conta</Button>
 
     <ConfirmationModal
       modalId="deleteAccountModal"

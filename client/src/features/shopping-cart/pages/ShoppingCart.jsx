@@ -5,7 +5,7 @@ import { useContext, useEffect, useRef, useState } from 'react';
 // Contexts
 import ShippingContext from '@contexts/ShippingContext';
 import CartContext from '@shopping-cart/contexts/CartContext';
-import MainButton from '@buttons/MainButton';
+import Button from '@buttons/Button';
 
 // Components
 import CartList from '@shopping-cart/components/CartList';
@@ -33,7 +33,7 @@ function ShoppingCart() {
   if (!cartItems.length) {
     return (
       <EmptyList title="Você ainda não adicionou nenhum item ao carrinho">
-        <MainButton onClick={() => navigate('/categorias/vestuario-masculino')}>Ir às compras</MainButton>
+        <Button main onClick={() => navigate('/categorias/vestuario-masculino')}>Ir às compras</Button>
       </EmptyList>
     )
   }
@@ -47,7 +47,7 @@ function ShoppingCart() {
         setDeliveryMethod={setDeliveryMethod}
         shippingInfo={shippingInfo}
       />
-      <hr className="faded" />
+      <hr className="hr-faded" />
       <CartSummary deliveryMethod={deliveryMethod} />
       <CartActions deliveryMethod={deliveryMethod} />
     </main>

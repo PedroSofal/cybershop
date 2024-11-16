@@ -1,34 +1,32 @@
 import { css } from '@emotion/react';
 
-const mainButtonStyles = css`
+const buttonStyles = css`
   padding: var(--input-padding);
   border-radius: var(--border-radius);
   font-size: var(--input-fs);
-  background-color: var(--purple-1) !important;
   transition: var(--input-transition);
-
-  &:hover:not([disabled]) {
-    background-color: var(--purple-1-highlight) !important;
-  }
-
-  &:active:not([disabled]) {
-    background-color: var(--purple-1-shade) !important;
-  }
 `;
 
-const IconButtonStyles = css`
+const iconButtonStyles = (children) => css`
   display: flex;
-  align-items: end;
-  gap: var(--ws-100);
+  align-items: center;
+  gap: ${children ? 'var(--ws-100)' : 0};
+  padding: var(--ws-300);
 
-  & span {
+  .btn-icon {
     display: inline-flex;
   }
+
+  .btn-text {
+    align-self: end;
+  }
 `;
 
-function MainButton({
+function Button({
+  main,
   id,
   type,
+  htmlRef,
   onClick,
   disabled,
   icon,
@@ -37,12 +35,18 @@ function MainButton({
   ariaLabelledBy,
   children
 }) {
+  const className = main
+    ? 'elv elv-accent elv--hover elv--active negative'
+    : 'elv elv--hover elv--active'
+  ;
+  
   return (
     <button
       id={id}
-      className="elv elv--hover elv--active"
-      css={[mainButtonStyles, icon && IconButtonStyles].filter(Boolean)}
+      className={className}
+      css={[buttonStyles, icon && iconButtonStyles(children)].filter(Boolean)}
       type={type}
+      ref={htmlRef}
       aria-label={ariaLabel}
       aria-labelledby={ariaLabelledBy}
       onClick={onClick}
@@ -69,4 +73,4 @@ function MainButton({
   );
 }
 
-export default MainButton;
+export default Button;

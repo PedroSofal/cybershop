@@ -5,7 +5,7 @@ import { useCallback, useContext, useEffect, useState } from 'react';
 import ShippingContext from '@contexts/ShippingContext';
 
 // Components
-import MainButton from '@buttons/MainButton';
+import Button from '@buttons/Button';
 import TextInput from '@inputs/TextInput';
 import getShippingInfo from '@utils/getShippingInfo';
 
@@ -75,7 +75,7 @@ function ZipCodeForm({ label, submitSideEffect }) {
         onChange={(e) => handleInputChange(e, zipCodeField.autoFormat)}
       />
 
-      <MainButton disabled={!isFormValid} ariaLabel="Calcular frete">Calcular</MainButton>
+      <Button main disabled={!isFormValid} ariaLabel="Calcular frete">Calcular</Button>
     </form>
   );
 }

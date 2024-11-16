@@ -2,11 +2,11 @@ import { css } from '@emotion/react';
 
 function Container({ styles, children }) {
   const glassStyles = css`
+    border: 2px solid var(--bg-dp-24);
     border-radius: var(--border-radius);
     padding: var(--container-padding);
     background-image: linear-gradient(30deg, var(--overlay-gradient-1));
-    background-color: var(--purple-2) !important;
-    border: 2px solid var(--bg-dp-24);
+    background-color: var(--glass-dp-0) !important;
   `;
 
   return (

@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import CheckoutContext from '@checkout/contexts/CheckoutContext';
-import SecButton from '@buttons/SecButton';
+import Button from '@buttons/Button';
 
 function BackButton() {
   const navigate = useNavigate();
@@ -16,7 +16,7 @@ function BackButton() {
   }
 
   return (
-    <SecButton type="button" onClick={handleBackButton}>Voltar</SecButton>
+    <Button type="button" onClick={handleBackButton}>Voltar</Button>
   );
 }
 

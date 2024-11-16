@@ -1,15 +1,13 @@
 import { css } from '@emotion/react';
 
 const menuStyles = css`
-  border-radius: var(--border-radius);
-  overflow: hidden;
   padding-block: calc(max(var(--ws-300), 1rem) / 2);
 `;
 
 const menuItemStyles = (isActive) => css`
   font-size: var(--fs-400);
   padding: var(--input-padding);
-  border-bottom: 2px solid ${isActive ? 'var(--purple-1-highlight)' : 'transparent'};
+  border-bottom: 2px solid ${isActive ? 'var(--accent-dp-0)' : 'transparent'};
   box-shadow: none !important;
   cursor: pointer;
   transition: background-color var(--transition-1);
@@ -24,7 +22,7 @@ function Menu({ list }) {
   }
 
   return (
-    <ul className="elv" css={menuStyles} role="menu">
+    <ul css={menuStyles} role="menu">
       {list.map((item, index) => (
         <li
           key={index}

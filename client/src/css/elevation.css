@@ -1,17 +1,12 @@
-.elv-2 .elv-2 .elv-hover:not(:disabled):hover,
-.elv-2 .elv-2 .elv .elv-hover:not(:disabled):hover,
-.elv .elv .elv .elv.elv--focus:focus,
+/* .elv .elv .elv .elv.elv--focus:focus,
 .elv .elv label.elv.elv--focus:has(input:checked),
 .elv .elv .elv .elv.elv--hover:not(:disabled):hover,
 .elv .elv .elv .elv .elv-hover:not(:disabled):hover,
 .elv .elv .elv .elv .elv {
   box-shadow: var(--shadow-dp-24);
   background-color: var(--bg-dp-24);
-}
+} */
 
-.elv-2 .elv-2,
-.elv-2 .elv-2 .elv,
-.elv .elv .elv-2 .elv-hover:not(:disabled):hover,
 .elv .elv .elv.elv--focus:focus,
 .elv label.elv.elv--focus:has(input:checked),
 .elv .elv .elv.elv--hover:not(:disabled):hover,
@@ -21,7 +16,6 @@
   background-color: var(--bg-dp-12);
 }
 
-.elv-2,
 .elv .elv .elv-hover:not(:disabled):hover,
 .elv .elv.elv--hover:not(:disabled):hover,
 .elv .elv .elv {
@@ -41,12 +35,65 @@
   background-color: var(--bg-dp-0);
 }
 
+/******* Header */
+
+.elv-header {
+  box-shadow: var(--shadow-dp-6) !important;
+  background-color: var(--primary-dp-0) !important;
+}
+
+.elv-header .elv {
+  box-shadow: var(--shadow-dp-12) !important;
+  background-color: var(--primary-dp-1) !important;
+}
+
+.elv-header .elv-hover:not(:disabled):hover,
+.elv-header .elv.elv--hover:not(:disabled):hover {
+  background-color: var(--primary-dp-2) !important;
+}
+
+/******* Suspended */
+
+.elv-suspended {
+  box-shadow: var(--shadow-dp-12) !important;
+  background-color: var(--suspended-dp-0) !important;
+}
+
+.elv-suspended .elv-hover:not(:disabled):hover {
+  background-color: var(--suspended-dp-1) !important;
+}
+
+.elv-suspended .elv {
+  box-shadow: var(--shadow-dp-12) !important;
+  background-color: var(--bg-dp-12) !important;
+}
+
+.elv-suspended .elv.elv--hover:not(:disabled):hover {
+  background-color: var(--bg-dp-24) !important;
+}
+
+/******* Accent */
+
+.elv.elv-accent {
+  background-color: var(--accent-dp-0) !important;
+}
+
+.elv.elv-accent.elv--hover:not(:disabled):hover {
+  background-color: var(--accent-dp-1) !important;
+}
+
+.elv.elv-accent.elv--active:not(:disabled):active {
+  background-color: var(--accent-dp-0) !important;
+}
+
+/******* Shadow Override */
+
 .elv-hover:not(:disabled):hover {
   box-shadow: none !important;
 }
 
 .elv--active:not(:disabled):active {
-  box-shadow: inset 2px 2px 4px hsla(253, 20%, 7%, 0.8) !important;
+  box-shadow: var(--inset-shadow) !important;
 }
 
 /****** Debugger */
@@ -55,6 +102,6 @@
 .elv .elv { background-color: blue; }
 .elv .elv .elv { background-color: green; }
 .elv .elv .elv .elv { background-color: yellow; }
-.elv-2 { background-color: orange; }
-.elv-2 .elv-2 { background-color: fuchsia; }
-.elv-2 .elv-2 .elv { background-color: fuchsia; } */
+.elv-suspended { background-color: orange; }
+.elv-suspended .elv-suspended { background-color: fuchsia; }
+.elv-suspended .elv-suspended .elv { background-color: fuchsia; } */

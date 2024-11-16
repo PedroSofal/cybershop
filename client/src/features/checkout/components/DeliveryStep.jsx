@@ -15,7 +15,7 @@ import Form from '@forms/Form';
 import FormBody from '@forms/FormBody';
 import FormFooter from '@forms/FormFooter';
 import Fieldset from '@forms/Fieldset';
-import MainButton from '@buttons/MainButton';
+import Button from '@buttons/Button';
 import BackButton from '@checkout/components/BackButton';
 import FormHeader from '@forms/FormHeader';
 
@@ -213,9 +213,9 @@ function DeliveryStep() {
 
       <FormFooter>
         <BackButton />
-        <MainButton disabled={!isFormValid}>
+        <Button main disabled={!isFormValid}>
           Avançar para forma de pagamento
-        </MainButton>
+        </Button>
       </FormFooter>
     </Form>
     </>

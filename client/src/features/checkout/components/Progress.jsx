@@ -15,7 +15,8 @@ const sectionStyle = css`
   --circle-size: 3.125rem;
   --line-thickness: 4px;
   --next-steps-clr: var(--bg-dp-1);
-  --taken-steps-clr: var(--brand-clr-1);
+  --taken-steps-clr: var(--accent-dp-0);
+  --taken-steps-glow: var(--accent-glow);
   --progress: 0%;
 `;
 
@@ -23,17 +24,17 @@ const stepStyles = css`
   display: grid;
   place-items: center;
   gap: 5px;
-  color: var(--white-3);
+  color: var(--text-clr-3);
   z-index: 1;
 `;
 
 const activeStyles = css`
-  color: var(--white);
+  color: var(--text-clr);
   font-weight: 600;
 
   & > div {
     background-color: var(--taken-steps-clr);
-    box-shadow: 0 0 15px 2px var(--taken-steps-clr);
+    box-shadow: 0 0 40px 10px var(--taken-steps-glow);
   }
 `;
 
@@ -51,7 +52,7 @@ const lineStyles = css`
   width: var(--progress);
   height: 100%;
   background-color: var(--taken-steps-clr);
-  box-shadow: 0 0 15px 2px var(--taken-steps-clr);
+  box-shadow: 0 0 40px 10px var(--taken-steps-glow);
 `;
 
 const numberStyles = css`
@@ -61,6 +62,7 @@ const numberStyles = css`
   height: var(--circle-size);
   border-radius: 50%;
   background-color: var(--next-steps-clr);
+  color: var(--text-clr-1);
 `;
 
 function Progress() {
@@ -79,15 +81,15 @@ function Progress() {
         <div css={lineStyles}></div>
       </div>
       <div css={[stepStyles, progress >= 1 && activeStyles]}>
-        <div css={numberStyles}>1</div>
+        <div css={numberStyles} className={progress >= 1 ? 'negative' : ''}>1</div>
         <p>{deliveryMethod === 'pick-up' ? 'Contato' : 'Entrega'}</p>
       </div>
       <div css={[stepStyles, progress >= 2 && activeStyles]}>
-        <div css={numberStyles}>2</div>
+        <div css={numberStyles} className={progress >= 2 ? 'negative' : ''}>2</div>
         <p>Pagamento</p>
       </div>
       <div css={[stepStyles, progress >= 3 && activeStyles]}>
-        <div css={numberStyles}>3</div>
+        <div css={numberStyles} className={progress >= 3 ? 'negative' : ''}>3</div>
         <p>Revisão</p>
       </div>
     </section>

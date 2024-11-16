@@ -14,7 +14,7 @@ import Form from '@forms/Form';
 import FormHeader from '@forms/FormHeader';
 import FormBody from '@forms/FormBody';
 import FormFooter from '@forms/FormFooter';
-import MainButton from '@buttons/MainButton';
+import Button from '@buttons/Button';
 import BackButton from '@checkout/components/BackButton';
 import PaymentOptions from '@checkout/components/PaymentOptions'
 import PromoCodeForm from '@checkout/components/PromoCodeForm';
@@ -130,9 +130,9 @@ function PaymentStep() {
               />
               <FormFooter>
                 <BackButton />
-                <MainButton disabled={!isFormValid}>
+                <Button disabled={!isFormValid}>
                   Avançar para revisão da compra
-                </MainButton>
+                </Button>
               </FormFooter>
             </Form>
           </div>
@@ -140,9 +140,9 @@ function PaymentStep() {
           <form onSubmit={handleSubmit}>
             <FormFooter>
               <BackButton />
-              <MainButton disabled={!paymentMethod}>
+              <Button main disabled={!paymentMethod}>
                 Avançar para revisão da compra
-              </MainButton>
+              </Button>
             </FormFooter>
           </form>
         )

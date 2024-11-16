@@ -9,10 +9,11 @@ const style = css`
   border-radius: var(--border-radius);
   font-family: inherit;
   font-size: var(--input-fs);
+  color: var(--text-clr-1);
   cursor: pointer;
 
   &:disabled {
-    color: var(--white-3);
+    color: var(--text-clr-3);
   }
 `;
 

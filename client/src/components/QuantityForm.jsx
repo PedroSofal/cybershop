@@ -1,4 +1,4 @@
-import SecButton from './ui/buttons/SecButton';
+import Button from './ui/buttons/Button';
 import SquareNumberInput from '@inputs/SquareNumberInput';
 import { Add, Remove } from '@mui/icons-material';
 import { css } from '@emotion/react';
@@ -40,17 +40,17 @@ function QuantityForm({ quantity, setQuantity, htmlRef, ariaLabelledBy }) {
         ariaLabel={`quantidade: ${quantity} unidade${quantity > 1 ? 's' : ''}`}
       />
 
-      <SecButton
+      <Button
         onClick={handleIncreaseQuantity}
         ariaLabel="acrescentar uma unidade"
         icon={<Add />}
-      ></SecButton>
+      ></Button>
 
-      <SecButton
+      <Button
         onClick={handleDecreaseQuantity}
         ariaLabel="subtrair uma unidade"
         icon={<Remove />}
-      ></SecButton>
+      ></Button>
     </div>
   );
 }

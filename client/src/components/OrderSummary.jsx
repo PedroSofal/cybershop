@@ -1,16 +1,10 @@
+import GlassContainer from '@containers/GlassContainer';
 import formatPriceToBRL from '@utils/formatPriceToBRL';
 import { css } from '@emotion/react';
 
-const totalSectionStyles = css`
-  padding: var(--ws-600);
-  border-radius: var(--border-radius);
-  font-size: var(--fs-400);
-  text-align: center;
-
-  & span:last-child {
-    font-weight: 600;
-    font-size: var(--fs-800);
-  }
+const priceStyles = css`
+  font-weight: 600;
+  font-size: var(--fs-800);
 `;
 
 const sectionTitleStyles = css`
@@ -42,7 +36,7 @@ const valueStyles = css`
 `;
 
 const emptyStyles = css`
-  color: var(--white-3);
+  color: var(--text-clr-3);
 `;
 
 const personalMapping = {
@@ -74,8 +68,8 @@ function ListItem({ mappedKey, value }) {
   if (!mappedKey && !value) return;
   return (
     <li css={itemStyles}>
-      <p className="elv" css={keyStyles}>{mappedKey || 'Informação adicional'}:</p>
-      <p className="elv-2" css={[valueStyles, !value && emptyStyles]}>
+      <p className="elv text-clr-3" css={keyStyles}>{mappedKey || 'Informação adicional'}:</p>
+      <p className="elv" css={[valueStyles, !value && emptyStyles]}>
         {value ? value : 'não informado'}
       </p>
     </li>
@@ -108,23 +102,23 @@ function OrderSumamry({
     <div className="flex-column gap-600">
       <section aria-labelledby="section1" className="flex-column gap-600">
         <h2 id="section1" className="offscreen">Informações básicas</h2>
-        <div className="flex-column gap-200 elv" css={totalSectionStyles}>
-          <p className="flex-column">
+        <GlassContainer>
+          <p className="flex-column text-center">
             <span>{status === 'pago' ? 'Total pago:' : 'Total a pagar:'}</span>
-            <span>{formatPriceToBRL(total)}</span>
+            <span css={priceStyles}>{formatPriceToBRL(total)}</span>
           </p>
-        </div>
+        </GlassContainer>
 
         <div className="flex-column gap-200">
           <div css={itemStyles}>
-            <p className="elv" css={keyStyles}>Pagamento:</p>
-            <p className="elv-2" css={valueStyles}>
+            <p className="elv text-clr-3" css={keyStyles}>Pagamento:</p>
+            <p className="elv" css={valueStyles}>
               {paymentMethod === 'card' ? 'Cartão de crédito' : paymentMethod}
             </p>
           </div>
           <div css={itemStyles}>
-            <p className="elv" css={keyStyles}>Entrega:</p>
-            <p className="elv-2" css={valueStyles}>
+            <p className="elv text-clr-3" css={keyStyles}>Entrega:</p>
+            <p className="elv" css={valueStyles}>
               {deliveryMethod === 'pick-up' ? 'Retirada na loja' : 'Entrega em domicílio'}
             </p>
           </div>

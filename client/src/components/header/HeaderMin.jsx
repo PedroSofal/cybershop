@@ -23,7 +23,7 @@ function HeaderMin() {
 
   return (
     <Sticky>
-      <div className="content-grid elv-2" css={() => headerContainerStyles(isHidden)}>
+      <div className="content-grid elv-header negative" css={() => headerContainerStyles(isHidden)}>
         <header className="flex jc-between ai-center">
           <Logo styles={css`width: calc(var(--fs-900) * 5);`} />
           <NavItem linkTo="/perfil">

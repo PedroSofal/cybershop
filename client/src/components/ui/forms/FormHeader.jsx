@@ -2,8 +2,7 @@
 import { useEffect } from 'react';
 
 // Components
-import SecButton from '@buttons/SecButton';
-import MainButton from '@buttons/MainButton';
+import Button from '@buttons/Button';
 import DataSelector from '@forms/DataSelector';
 
 // API
@@ -92,22 +91,23 @@ function FormHeader({
 
       {!readOnly &&
         <div className="flex gap-400">
-          <SecButton
+          <Button
             type="button"
             onClick={deleteData}
             disabled={dataList.length === 0}
             ariaLabel={labels.deleteLabel[labelGroup]}
             icon={<Delete />}
-          ></SecButton>
+          ></Button>
 
-          <MainButton
+          <Button
+            main
             onClick={addData}
             disabled={maxLimit}
             ariaLabel={labels.mainAction[labelGroup]}
             icon={<Add />}
           >
             {maxLimit ? 'Limite atingido' : labels.mainAction[labelGroup]}
-          </MainButton>
+          </Button>
         </div>
       }
     </div>

@@ -9,8 +9,7 @@ import ShippingContext from '@contexts/ShippingContext';
 
 // Components
 import QuantityForm from '@components/QuantityForm';
-import MainButton from '@buttons/MainButton';
-import SecButton from '@buttons/SecButton';
+import Button from '@buttons/Button';
 import ProductImage from '@components/ui/ProductImage';
 import Rating from '@components/ui/Rating';
 import Price from '@components/ui/Price';
@@ -135,13 +134,13 @@ function ProductPage() {
         <PaymentMethods priceNumber={displayedProduct.price * quantity} />
         <hr />
         <div className="flex-column gap-200">
-          <MainButton onClick={() => handleBuyClick(displayedProduct)}>Comprar</MainButton>
-          <SecButton
+          <Button main onClick={() => handleBuyClick(displayedProduct)}>Comprar</Button>
+          <Button
             onClick={() => handleAddToCart(displayedProduct)}
             disabled={addToCartBtnDisabled}
           >
             {addToCartBtnText}
-          </SecButton>
+          </Button>
         </div>
         <hr />
         <ZipCodeForm label="Calcular frete:" submitSideEffect={submitZipCode} />

@@ -24,7 +24,7 @@ const inputStyles = css`
   font-size: var(--input-fs);
 
   &::placeholder {
-    color: var(--white-3);
+    color: var(--text-clr-3);
   }
 `;
 

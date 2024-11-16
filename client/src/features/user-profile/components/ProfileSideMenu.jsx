@@ -213,9 +213,9 @@ function AccountSideMenu() {
         <Close />
       </button>
       <div css={css`font-size: 6rem;`}>
-        <ProfilePicture />
+        <ProfilePicture styles={css`background-color: var(--accent-dp-0);`} />
       </div>
-      <nav aria-label="opções do usuário" id="sidebarNav">
+      <nav className="elv border-radius" aria-label="opções do usuário" id="sidebarNav">
         <Menu list={[
           { text: 'Informações pessoais', action: () => navigate('/perfil/informacoes-pessoais'), active: location.pathname.startsWith('/perfil/informacoes-pessoais') },
           { text: 'Meus endereços', action: () => navigate('/perfil/enderecos'), active: location.pathname.startsWith('/perfil/enderecos') },

@@ -1,41 +1,33 @@
 import { useContext, useState } from 'react';
 import CheckoutContext from '@checkout/contexts/CheckoutContext';
 import TextInput from '@inputs/TextInput';
-import MainButton from '@buttons/MainButton';
+import Button from '@buttons/Button';
 import promoCodes from '@data/promoCodes';
+import CircleIconContainer from '@components/ui/containers/CircleIconContainer';
+import { Close } from '@mui/icons-material';
 import { css } from '@emotion/react';
 
 const appliedCodeStyles = css`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   position: relative;
-  padding: var(--ws-200) var(--ws-400);
+  padding: var(--input-padding);
   border-radius: var(--border-radius);
   font-size: var(--fs-500);
-  background-color: var(--discount-clr-2);
+  background-color: var(--discount-clr);
   cursor: pointer;
 
-  &::after {
-    content: 'X';
-    display: grid;
-    place-content: center;
-    position: absolute;
-    width: 25px;
-    height: 25px;
-    right: -0.7rem;
-    top: -0.5rem;
-    border-radius: 50%;
-    font-size: 0.8rem;
-    background-color: var(--error-clr);
-    visibility: hidden;
-  }
-
   &:hover {
-    background-color: hsl(from var(--error-clr) h s calc(l + 10) / 0.3);
-  }
-
-  &:hover&::after {
-    visibility: visible;
+    background-color: var(--error-clr);
   }
 `;
+
+const removeIconStyles = css`
+  border: 1px solid var(--text-clr-1);
+  font-size: var(--fs-300);
+  padding: var(--ws-400);
+;`
 
 const promoCodeField = {
   id: 'promoCode',
@@ -80,11 +72,12 @@ function PromoCodeForm() {
           onChange={handleInputChange}
         />
 
-        <MainButton>Aplicar desconto</MainButton>
+        <Button main>Aplicar desconto</Button>
       </form>
     ) : (
       <div onClick={() => removeOrderInfo('promoCode')} css={appliedCodeStyles}>
         <p>Código de {appliedPromoCode.rate * 100}% de desconto aplicado!</p>
+        <CircleIconContainer styles={removeIconStyles}><Close /></CircleIconContainer>
       </div>
     )
   );

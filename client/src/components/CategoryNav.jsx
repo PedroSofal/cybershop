@@ -28,7 +28,7 @@ const linkStyles = (isActive) => css`
 
 function CategoryNav() {
   const navRef = useRef();
-  const location = useLocation();
+  const { pathname } = useLocation();
   const isHidden = useHideOnScroll();
   const isOverflowing = useOverflow(navRef);
   
@@ -43,7 +43,8 @@ function CategoryNav() {
           {Object.entries(categories).map(([key, category]) => (
             <li key={key}>
               <Link
-                css={() => linkStyles(category.path === location.pathname)} className="elv-hover"
+                css={() => linkStyles(category.path === pathname)}
+                className={category.path === pathname ? 'elv-hover negative' : 'elv-hover'}
                 to={category.path}>
                 {category.title}
               </Link>

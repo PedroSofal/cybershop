@@ -5,8 +5,7 @@ import { useContext, useRef } from "react";
 import CartContext from '@shopping-cart/contexts/CartContext';
 
 // Components
-import SecButton from '@buttons/SecButton';
-import MainButton from '@buttons/MainButton';
+import Button from '@buttons/Button';
 import ConfirmationModal from '@components/ConfirmationModal';
 
 // Assets
@@ -59,20 +58,21 @@ function CartActions({ deliveryMethod }) {
     <section aria-labelledby="cartActions">
       <h2 id="cartActions" className="offscreen">Ações do Carrinho</h2>
       <div css={actionsStyles}>
-        <SecButton
+        <Button
           onClick={() => dialogRef.current.showModal()}
           icon={<RemoveShoppingCart />}
-        >Limpar carrinho</SecButton>
+        >Limpar carrinho</Button>
         <div>
-          <SecButton
+          <Button
             onClick={() => navigate('/categorias/vestuario-masculino')}
             icon={<KeyboardDoubleArrowLeft />}
-          >Continuar comprando</SecButton>
-          <MainButton
+          >Continuar comprando</Button>
+          <Button
+            main
             onClick={handleCheckoutClick}
             icon={<KeyboardDoubleArrowRight />}
             iconPos="right"
-          >Finalizar compra</MainButton>
+          >Finalizar compra</Button>
         </div>
       </div>
     </section>
