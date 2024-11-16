@@ -6,6 +6,7 @@ import { useRef } from 'react';
 import useOverflow from '@hooks/useOverflow';
 
 const sectionStyles = (isHidden) => css`
+  padding-block: var(--ws-050);
   font-weight: 600;
   white-space: nowrap;
   overflow-x: auto;
@@ -21,9 +22,9 @@ const navStyles = (isOverflowing) => css`
 
 const linkStyles = (isActive) => css`
   display: block;
-  padding: var(--ws-300) var(--ws-400-500);
+  padding: var(--ws-200) var(--ws-400-500);
   border-radius: var(--border-radius);
-  background-color: ${isActive ? 'var(--brand-clr-1) !important' : 'unset'};
+  background-color: ${isActive ? 'var(--accent-dp-0) !important' : 'unset'};
 `;
 
 function CategoryNav() {
@@ -39,7 +40,7 @@ function CategoryNav() {
         className="content-grid"
         aria-label="exibir produtos por categoria"
       >
-        <ul className="flex ai-center" css={() => navStyles(isOverflowing)}>
+        <ul className="flex ai-center gap-050" css={() => navStyles(isOverflowing)}>
           {Object.entries(categories).map(([key, category]) => (
             <li key={key}>
               <Link
