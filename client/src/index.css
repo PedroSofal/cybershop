@@ -85,6 +85,7 @@ dialog {
   left: 50%;
   transform: translate(-50%, -50%);
   border: none;
+  overflow: hidden;
   background-color: transparent;
 }
 

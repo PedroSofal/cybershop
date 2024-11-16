@@ -38,7 +38,7 @@ function QuantityModal({ htmlRef, product }) {
       aria-describedby="modalDesc"
       aria-modal="true"
     >
-      <div className="elv" css={containerStyles}>
+      <div className="elv-modal" css={containerStyles}>
         <h1
           id="modalTitle"
           className="modal-section"

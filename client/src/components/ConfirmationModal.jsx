@@ -41,7 +41,7 @@ function ConfirmationModal({
       aria-describedby={descId}
       aria-modal="true"
     >
-      <div className="elv-suspended" css={containerStyles}>
+      <div className="elv-modal" css={containerStyles}>
         <h1
           id={titleId}
           className="modal-section"

@@ -55,7 +55,7 @@ function CartSelectModal({ onSelect, conflict }) {
 
   return (
     <dialog ref={dialogRef}>
-      <div className="elv" css={containerStyles}>
+      <div className="elv-modal" css={containerStyles}>
         <section className="modal-section">
           <h1 css={titleStyles}>Conflito de carrinhos.</h1>
         </section>

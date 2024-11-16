@@ -72,6 +72,26 @@
   background-color: var(--bg-dp-24) !important;
 }
 
+/******* Modal */
+
+.elv-modal {
+  box-shadow: var(--shadow-dp-1) !important;
+  background-color: var(--bg-dp-1) !important;
+}
+
+.elv-modal .elv-hover:not(:disabled):hover {
+  background-color: var(--suspended-dp-1) !important;
+}
+
+.elv-modal .elv {
+  box-shadow: var(--shadow-dp-8) !important;
+  background-color: var(--bg-dp-8) !important;
+}
+
+.elv-modal .elv.elv--hover:not(:disabled):hover {
+  background-color: var(--bg-dp-24) !important;
+}
+
 /******* Accent */
 
 .elv.elv-accent {

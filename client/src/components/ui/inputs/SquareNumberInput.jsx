@@ -2,7 +2,7 @@ import { css } from '@emotion/react';
 
 const styles = css`
   width: clamp(2.8125rem, 2.5299rem + 1.413vw, 3.625rem);
-  border: 2px solid var(--bg-dp-12);
+  border: 2px solid var(--text-clr-3);
   border-radius: var(--border-radius);
   font-size: var(--input-fs);
   text-align: center;
