@@ -30,9 +30,13 @@
 .gap-200-400 { gap: var(--ws-200-400); }
 
 .text-center { text-align: center; }
-.text-clr-1 { color: var(--white-1) }
-.text-clr-2 { color: var(--white-2) }
-.text-clr-3 { color: var(--white-3) }
+.text-clr-1 { color: var(--text-clr-1) }
+.text-clr-2 { color: var(--text-clr-2) }
+.text-clr-3 { color: var(--text-clr-3) }
 .bold { font-weight: bold; }
 
-hr.faded { opacity: 0.1; }
+.hr-faded { opacity: var(--hr-faded); }
+
+.of-hidden { overflow: hidden; }
+
+.border-radius { border-radius: var(--border-radius); }

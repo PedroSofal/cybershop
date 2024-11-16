@@ -20,11 +20,6 @@ const itemStyles = css`
   cursor: pointer;
 `;
 
-const separatorStyles = css`
-  margin-inline: var(--ws-400);
-  opacity: 0.1;
-`;
-
 const seeMoreStyles = css`
   padding: var(--ws-400);
   font-size: var(--fs-500);
@@ -82,7 +77,7 @@ function ProductListMin({ products, ariaLabel, limit = 5, seeMoreText, seeMoreLi
         )
       ))}
     </ul>
-    <hr css={separatorStyles} />
+    <hr className="hr-faded" css={css`margin-inline: var(--ws-400);`} />
     <div css={seeMoreStyles}>
       <Link to={seeMoreLink}>{seeMoreText}</Link>
     </div>

@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import Logo from '@components/ui/Logo';
-import MainButton from '@buttons/MainButton';
+import Button from '@buttons/Button';
 import ScreenContainer from '@containers/ScreenContainer';
 import Ascii from '@components/ui/Ascii';
 import { css } from '@emotion/react';
@@ -37,7 +37,7 @@ function Error404() {
           Verifique erros ortográficos ou tente novamente mais tarde.
         </p>
       </div>
-      <MainButton onClick={() => navigate(-1)}>Voltar</MainButton>
+      <Button main onClick={() => navigate(-1)}>Voltar</Button>
     </main>
   );
 }

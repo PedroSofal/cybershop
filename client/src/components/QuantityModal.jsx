@@ -1,6 +1,5 @@
 import CartContext from '@shopping-cart/contexts/CartContext';
-import MainButton from '@buttons/MainButton';
-import SecButton from '@buttons/SecButton';
+import Button from '@buttons/Button';
 import QuantityForm from '@components/QuantityForm';
 import { css } from '@emotion/react';
 import { useContext, useState } from 'react';
@@ -45,7 +44,7 @@ function QuantityModal({ htmlRef, product }) {
           className="modal-section"
           css={css`font-size: var(--fs-800);`}
         >Selecione a quantidade</h1>
-        <hr className="faded" />
+        <hr className="hr-faded" />
         <div className="modal-section | flex ai-center jc-center gap-100">
           <QuantityForm
             quantity={quantity}
@@ -53,13 +52,14 @@ function QuantityModal({ htmlRef, product }) {
             ariaLabelledBy="addToCartBtn"
           />
         </div>
-        <hr className="faded" />
+        <hr className="hr-faded" />
         <div className="flex jc-end gap-200 | modal-section" aria-label="ações da caixa de diálogo">
-          <SecButton onClick={handleCancel}>Cancelar</SecButton>
-          <MainButton
+          <Button onClick={handleCancel}>Cancelar</Button>
+          <Button
+            main
             onClick={handleQuantityConfirmation}
             ariaLabel="confirmar quantidade e enviar produto ao carrinho"
-          >OK</MainButton>
+          >OK</Button>
         </div>
       </div>
     </dialog>

@@ -4,7 +4,7 @@ import { Link, Navigate, useLocation } from 'react-router-dom';
 
 // Components
 import ScreenContainer from '@containers/ScreenContainer';
-import SecButton from '@buttons/SecButton';
+import Button from '@buttons/Button';
 import Ascii from '@components/ui/Ascii';
 
 // Assets
@@ -18,7 +18,7 @@ const subtitleStyles = css`
   margin-top: var(--ws-200);
   margin-bottom: var(--ws-600);
   font-weight: 600;
-  color: var(--white-2);
+  color: var(--text-clr-2);
 `;
 
 function SaleCompleted() {
@@ -76,11 +76,11 @@ function SaleCompleted() {
     return (
       <section className="flex-column ai-center gap-400">
         <h2 className="offscreen">Links de contato</h2>
-        <SecButton
+        <Button
           onClick={handleEmailClick}
           icon={<Email />}
           ariaLabel="enviar email para pedrosofal@gmail.com"
-        >pedrosofal@gmail.com</SecButton>
+        >pedrosofal@gmail.com</Button>
         <div className="flex ai-center gap-200" css={css`& svg { font-size: var(--fs-800); }`}>
           <Link
             to="https://www.linkedin.com/in/pedrosofal/"

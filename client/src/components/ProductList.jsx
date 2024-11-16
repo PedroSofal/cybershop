@@ -5,7 +5,7 @@ import { useRef, useState } from 'react';
 // Components
 import ProductImage from '@components/ui/ProductImage';
 import Price from '@components/ui/Price';
-import SecButton from '@buttons/SecButton';
+import Button from '@buttons/Button';
 import QuantityModal from '@components/QuantityModal';
 
 // Styles
@@ -17,7 +17,7 @@ const cardStyles = css`
   container: card / inline-size;
 
   &:hover, &:has(h2:focus), &:has(h3:focus) {
-    outline: 2px solid white;
+    outline: 2px solid var(--accent-dp-0);
   }
 
   & > div {
@@ -36,7 +36,7 @@ const titleStyles = css`
   -webkit-box-orient: vertical;
   box-orient: vertical;
   overflow: hidden;
-  color: var(--white-2);
+  color: var(--text-clr-2);
   cursor: pointer;
 `;
 
@@ -84,10 +84,10 @@ function ProductList({ products, withAddToCart }) {
             <Price priceNumber={product.price} />
 
             {withAddToCart &&
-              <SecButton
+              <Button
                 id="addToCartBtn"
                 onClick={() => openQuantityModal(product)}
-                >Adicionar ao carrinho</SecButton>
+                >Adicionar ao carrinho</Button>
             }
           </div>
         </li>

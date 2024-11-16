@@ -27,9 +27,7 @@ function NavItem({ linkTo, children }) {
   return (
     <li
       css={itemStyles}
-      className={isActive ? 'elv-2' : ''}
-      onMouseEnter={() => setIsActive(true)}
-      onMouseLeave={() => setIsActive(location.pathname.startsWith(linkTo))}
+      className={isActive ? 'elv elv-hover' : 'elv-hover'}
     >
       {children}
     </li>

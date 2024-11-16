@@ -2,8 +2,7 @@ import { useEffect, useRef } from 'react';
 import StandardContainer from '@containers/StandardContainer';
 import FormFooter from '@forms/FormFooter';
 import ErrMsg from '@forms/ErrMsg';
-import MainButton from '@buttons/MainButton';
-import SecButton from '@buttons/SecButton';
+import Button from '@buttons/Button';
 import FormLogo from '@forms/FormLogo';
 
 function Form({
@@ -40,12 +39,14 @@ function Form({
 
         {!noFooter &&
           <FormFooter>
-            {onCancel && <SecButton type="button" onClick={onCancel}>
-              Cancelar
-            </SecButton>}
-            <MainButton disabled={!isFormValid || isSubmitting || success}>
+            {onCancel &&
+              <Button type="button" onClick={onCancel}>
+                Cancelar
+              </Button>
+            }
+            <Button main disabled={!isFormValid || isSubmitting || success}>
               {isSubmitting ? 'Enviando...' : success ? 'Salvo' : mainAction}
-            </MainButton>
+            </Button>
           </FormFooter>
         }
       </form>

@@ -7,6 +7,7 @@ const starsStyles = (ratingWidth) => css`
   width: 120px;
   height: 24px;
   background: url(${StarOutlined});
+  filter: var(--rating-filter);
 
   &::after {
     content: '';

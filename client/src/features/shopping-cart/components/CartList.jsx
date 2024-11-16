@@ -8,7 +8,7 @@ import CartContext from '@shopping-cart/contexts/CartContext';
 // Components
 import QuantityForm from '@components/QuantityForm';
 import ProductImage from '@components/ui/ProductImage';
-import SecButton from '@components/ui/buttons/SecButton';
+import Button from '@components/ui/buttons/Button';
 import Price from '@components/ui/Price';
 import GlassContainer from '@containers/GlassContainer';
 import SuspendedOnClick from '@components/ui/suspended/SuspendedOnClick';
@@ -109,12 +109,12 @@ function CartList({ editable }) {
           {editable && <p>Excluir</p>}
           <p>Preço</p>
         </header>
-        <hr className="faded desktop-only" css={separatorStyles} />
+        <hr className="hr-faded desktop-only" css={separatorStyles} />
         <ul className="display-contents" aria-labelledby="section1">
           {cartItems.map((product, index) => (
             <li id={`cartItem-${product.id}`} key={product.id} className="display-contents">
               {index > 0 &&
-                <hr className="faded desktop-hidden" css={separatorStyles} />
+                <hr className="hr-faded desktop-hidden" css={separatorStyles} />
               }
               <ProductImage
                 src={product.image}
@@ -149,11 +149,11 @@ function CartList({ editable }) {
                     />
                   </div>
                   <div className="desktop-only">
-                    <SecButton
+                    <Button
                       ariaLabel="excluir produto do carrinho"
                       onClick={(e) => handleDeleteClick(e, product)}
                       icon={<Delete />}
-                    ></SecButton>
+                    ></Button>
                   </div>
                   </>
                 ) : (

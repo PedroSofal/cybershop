@@ -10,7 +10,7 @@ import AuthContext from '@authentication/contexts/AuthContext';
 import StandardContainer from '@containers/StandardContainer';
 import Form from '@forms/Form';
 import FormBody from '@forms/FormBody';
-import MainButton from '@buttons/MainButton';
+import Button from '@buttons/Button';
 import UnderText from '@authentication/components/UnderText';
 import { Link } from 'react-router-dom';
 
@@ -85,9 +85,9 @@ function Register() {
           <div className="flex-column gap-400">
             <h1 className="section-title">Parabéns!</h1>
             <p>Sua conta foi criada com sucesso.</p>
-            <MainButton onClick={() => navigate(from, {state: state, replace: true })}>
+            <Button main onClick={() => navigate(from, {state: state, replace: true })}>
               {from === '/checkout' ? 'Continuar com o checkout' : 'Ir às compras'}
-            </MainButton>
+            </Button>
           </div>
         </StandardContainer>
       </main>

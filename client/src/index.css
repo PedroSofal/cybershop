@@ -1,9 +1,5 @@
 :root {
   font-family: "Oxanium", sans-serif;
-
-  color-scheme: light dark;
-  color: var(--white-1);
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -34,9 +30,13 @@ h1,
 h2,
 h3,
 p,
+a,
 button,
-input {
-  color: var(--white-1);
+input,
+label,
+select,
+li {
+  color: var(--text-clr-1);
 }
 
 h1:focus,
@@ -44,6 +44,10 @@ h2:focus,
 h3:focus,
 p:focus {
   outline: none;
+}
+
+input {
+  font-family: inherit;
 }
 
 p {
@@ -63,7 +67,7 @@ button {
 select:disabled,
 button:disabled {
   cursor: default;
-  color: var(--white-3);
+  color: var(--text-clr-3);
 }
 
 button:focus:not(:active),
@@ -112,7 +116,7 @@ dialog::backdrop {
 }
 
 .text-long p {
-  color: var(--white-2);
+  color: var(--text-clr-2);
 }
 
 .offscreen {

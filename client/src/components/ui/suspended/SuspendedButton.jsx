@@ -7,6 +7,7 @@ const buttonStyles = css`
 `;
 
 function SuspendedButton({
+  id,
   htmlRef,
   onClick,
   onMouseUp,
@@ -17,6 +18,7 @@ function SuspendedButton({
 }) {
   return (
     <button
+      id={id}
       ref={htmlRef}
       css={buttonStyles}
       onClick={onClick}

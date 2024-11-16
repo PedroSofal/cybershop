@@ -13,7 +13,7 @@ import AuthContext from '@authentication/contexts/AuthContext';
 import Form from '@forms/Form';
 import FormHeader from '@forms/FormHeader';
 import FormBody from '@forms/FormBody';
-import MainButton from '@buttons/MainButton';
+import Button from '@buttons/Button';
 import EmptyList from '@components/EmptyList';
 import ServerError from '@components/ui/ServerError';
 
@@ -111,7 +111,7 @@ function MyAddresses() {
   if (dataList.length === 0 && !isAddingData && !isLoading) {
     return (
       <EmptyList title="Nenhum endereço salvo">
-        <MainButton onClick={() => setIsAddingData(true)} icon={<Add />}>+ Novo endereço</MainButton>
+        <Button main onClick={() => setIsAddingData(true)} icon={<Add />}>Novo endereço</Button>
       </EmptyList>
     );
   }

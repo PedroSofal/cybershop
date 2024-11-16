@@ -1,4 +1,5 @@
 import CircleIconContainer from '@containers/CircleIconContainer';
+import GlassContainer from '@containers/GlassContainer';
 import { css } from '@emotion/react';
 
 const cardStyles = css`
@@ -6,18 +7,16 @@ const cardStyles = css`
   flex-direction: column;
   align-items: center;
   gap: var(--ws-300);
+  height: 100%;
   padding: var(--ws-300);
-  border-radius: var(--border-radius);
-  box-shadow: 0 4px 8px var(--purple-2-shadow);
-  background-image: linear-gradient(30deg, var(--overlay-gradient-1));
-  background-color: var(--purple-2);
+  /* border: 0; */
   cursor: default;
   transition: transform var(--transition-2), background-color var(--transition-2), box-shadow var(--transition-2);
 
   &:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 20px var(--purple-2-shadow);
-    background-color: var(--purple-2-highlight);
+    box-shadow: 0 10px 20px var(--glass-shadow);
+    background-color: var(--glass-dp-1) !important;
   }
   
   & p {
@@ -34,9 +33,10 @@ const cardStyles = css`
 `;
 
 const iconContainerStyles = css`
-  background-color: var(--brand-clr-1);
-  box-shadow: 0 6px 12px var(--purple-1-shadow);
+  background-color: var(--accent-dp-0);
+  box-shadow: 0 6px 12px var(--glass-shadow);
   font-size: var(--fs-500);
+  color: var(--text-clr-1);
 
 & svg {
   font-size: var(--fs-500);
@@ -57,11 +57,15 @@ function Mosaic({ list, ariaLabel }) {
       aria-label={ariaLabel}
     >
       {list.map(card => (
-        <li key={card.id} css={cardStyles}>
-          <CircleIconContainer styles={iconContainerStyles}>
-            {card.icon}
-          </CircleIconContainer>
-          <p css={titleStyles}>{card.title}</p>
+        <li key={card.id}>
+          <GlassContainer styles={cardStyles}>
+            <div className="negative">
+              <CircleIconContainer styles={iconContainerStyles}>
+                {card.icon}
+              </CircleIconContainer>
+            </div>
+            <p css={titleStyles}>{card.title}</p>
+          </GlassContainer>
         </li>
       ))}
     </ul>

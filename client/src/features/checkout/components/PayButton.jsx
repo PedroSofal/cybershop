@@ -8,7 +8,7 @@ import CheckoutContext from '@checkout/contexts/CheckoutContext';
 import CartContext from '@shopping-cart/contexts/CartContext';
 
 // Components
-import MainButton from '@buttons/MainButton';
+import Button from '@buttons/Button';
 
 // API
 import axios from '@services/axios';
@@ -53,13 +53,14 @@ function PayButton({ disabled }) {
   }
 
   return (
-    <MainButton
+    <Button
+      main
       disabled={disabled}
       onClick={placeOrder}
       ariaLabelledBy="buttonText totalPrice"
     >
       <span id="buttonText">{buttonText}</span>
-    </MainButton>
+    </Button>
   );
 }
 

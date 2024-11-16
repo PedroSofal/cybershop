@@ -9,7 +9,7 @@ import CheckoutContext from '@checkout/contexts/CheckoutContext';
 import LinkButton from '@buttons/LinkButton';
 import PayButton from '@checkout/components/PayButton';
 import CartList from '@shopping-cart/components/CartList';
-import MainButton from '@buttons/MainButton';
+import Button from '@buttons/Button';
 
 // Utilities
 import formatPriceToBRL from '@utils/formatPriceToBRL';
@@ -135,7 +135,7 @@ function OrderProductsModal({ htmlRef }) {
         <h1>Produtos no carrinho</h1>
         <CartList />
         <div className="flex jc-end">
-          <MainButton onClick={() => htmlRef.current.close()}>Fechar</MainButton>
+          <Button main onClick={() => htmlRef.current.close()}>Fechar</Button>
         </div>
       </div>
     </dialog>

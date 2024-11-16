@@ -8,7 +8,7 @@ const containerStyles = (width, height, padding) => css`
   padding: ${padding};
   background-color: white;
   border-radius: var(--border-radius);
-  filter: brightness(80%); // TODO: dynamic value based on theme
+  filter: var(--img-brightness);
   cursor: pointer;
 `;
 

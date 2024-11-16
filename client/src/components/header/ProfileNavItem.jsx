@@ -14,7 +14,7 @@ function ProfileNavItem() {
   return (
     <SuspendedOnHover
       button={auth?.id
-        ? <ProfilePicture />
+        ? <ProfilePicture styles={css`border: 1px solid var(--text-clr-1);`} />
         : <CircleIconContainer ariaLabel="perfil do usuário"><PersonIcon /></CircleIconContainer>
       }
       content={<UserPreview />}

@@ -11,8 +11,7 @@ import EmptyList from '@components/EmptyList';
 import PhotoGallery from '@components/ui/PhotoGallery';
 import Loader from '@components/ui/Loader';
 import ServerError from '@components/ui/ServerError';
-import MainButton from '@buttons/MainButton';
-import SecButton from '@buttons/SecButton';
+import Button from '@buttons/Button';
 import LinkButton from '@buttons/LinkButton';
 import OrderStatus from '@components/OrderStatus';
 import ConfirmationModal from '@components/ConfirmationModal';
@@ -130,7 +129,7 @@ function MyOrders() {
   if (orderList.length === 0) {
     return (
       <EmptyList title="Você ainda não finalizou nenhum pedido">
-        <MainButton onClick={() => navigate('/categorias/vestuario-masculino')}>Ir às compras</MainButton>
+        <Button main onClick={() => navigate('/categorias/vestuario-masculino')}>Ir às compras</Button>
       </EmptyList>
     );
   }
@@ -159,11 +158,11 @@ function MyOrders() {
             <p className="text-clr-3" css={smallTextStyles}>ID do pedido: {order.id}</p>
           </div>
           <div className="desktop-only">
-            <SecButton
+            <Button
               onClick={() => handleDeleteClick(order.id)}
               ariaLabel="excluir pedido"
               icon={<Delete />}
-            ></SecButton>
+            ></Button>
           </div>
           <OrderStatus status={order.status} />
           <div css={css`justify-self: end;`} className="desktop-only">

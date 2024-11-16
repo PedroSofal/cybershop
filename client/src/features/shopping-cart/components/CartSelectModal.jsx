@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import MainButton from '@buttons/MainButton';
+import Button from '@buttons/Button';
 import PhotoGallery from '@components/ui/PhotoGallery';
 import { css } from '@emotion/react';
 
@@ -17,18 +17,13 @@ const titleStyles = css`
   font-size: var(--fs-800);
 `;
 
-const separatorStyles = css`
-  opacity: 0.1;
-`;
-
 const labelStyles = css`
-  border: 2px solid var(--bg-dp-24);
   border-radius: var(--border-radius);
   padding: var(--ws-300);
   cursor: pointer;
 
   &:has(input:checked) {
-    outline: 2px solid var(--white-1);
+    outline: 2px solid var(--accent-dp-0);
   }
 `;
 
@@ -64,11 +59,11 @@ function CartSelectModal({ onSelect, conflict }) {
         <section className="modal-section">
           <h1 css={titleStyles}>Conflito de carrinhos.</h1>
         </section>
-        <hr css={separatorStyles} />
+        <hr className="hr-faded" />
         <section className="modal-section">
           <p>Encontramos um carrinho salvo em sua conta. Escolha se deseja recuperá-lo ou continuar usando o carrinho atual.</p>
         </section>
-        <hr css={separatorStyles} />
+        <hr className="hr-faded" />
         <section className="flex jc-evenly | modal-section">
           {conflict.map((cartItems, index) => (
             <label key={index} className="flex-column gap-200" css={labelStyles}>
@@ -94,9 +89,9 @@ function CartSelectModal({ onSelect, conflict }) {
             </label>
           ))}
         </section>
-        <hr css={separatorStyles} />
+        <hr className="hr-faded" />
         <section className="flex jc-end gap-200 | modal-section">
-          <MainButton onClick={handleSelection}>Aplicar carrinho escolhido</MainButton>
+          <Button main onClick={handleSelection}>Aplicar carrinho escolhido</Button>
         </section>
       </div>
     </dialog>

@@ -49,7 +49,7 @@ const headerStyles = css`
 function Header() {
   return (
     <Sticky>
-      <div className="content-grid elv-2" css={headerContainerStyles}>
+      <div className="content-grid elv-header negative" css={headerContainerStyles}>
         <header id="header" css={headerStyles}>
             <section css={css`grid-area: logo;`}>
               <Logo />

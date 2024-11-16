@@ -1,10 +1,10 @@
 import { css } from '@emotion/react';
 
 const styles = css`
-  color: var(--white-3);
+  color: var(--text-clr-3);
 
   & span {
-    color: var(--white-1);
+    color: var(--text-clr-1);
     text-decoration: underline;
   }
 `;

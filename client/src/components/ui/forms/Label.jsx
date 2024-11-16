@@ -2,11 +2,11 @@ import { css } from '@emotion/react';
 
 const labelStyles = css`
   font-size: var(--fs-300);
-  color: var(--white-2);
+  color: var(--text-clr-2);
 
   span {
     font-size: var(--fs-200);
-    color: var(--white-3);
+    color: var(--text-clr-3);
   }
 `;
 

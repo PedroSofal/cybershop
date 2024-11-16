@@ -1,12 +1,6 @@
 import CircleIconContainer from '@containers/CircleIconContainer';
+import SuspendedButton from '@components/ui/suspended/SuspendedButton';
 import { Search } from '@mui/icons-material';
-import { css } from '@emotion/react';
-
-const buttonStyles = css`
-  font-size: inherit;
-  background-color: transparent;
-  cursor: pointer;
-`;
 
 function SearchNavItem() {
   function handleClick() {
@@ -24,14 +18,13 @@ function SearchNavItem() {
   }
   
   return (
-    <button
+    <SuspendedButton
       id="mobileSearchButton"
-      css={buttonStyles}
-      aria-label="pesquisar"
+      ariaLabel="pesquisar"
       onClick={handleClick}
     >
       <CircleIconContainer><Search /></CircleIconContainer>
-    </button>
+    </SuspendedButton>
   );
 }
 

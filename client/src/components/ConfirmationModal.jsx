@@ -1,5 +1,4 @@
-import MainButton from '@buttons/MainButton';
-import SecButton from '@buttons/SecButton';
+import Button from '@buttons/Button';
 import { css } from '@emotion/react';
 
 const containerStyles = css`
@@ -42,18 +41,18 @@ function ConfirmationModal({
       aria-describedby={descId}
       aria-modal="true"
     >
-      <div className="elv" css={containerStyles}>
+      <div className="elv-suspended" css={containerStyles}>
         <h1
           id={titleId}
           className="modal-section"
           css={css`font-size: var(--fs-800);`}
         >{title}</h1>
-        <hr className="faded" />
+        <hr className="hr-faded" />
         <p id={descId} className="modal-section">{description}</p>
-        <hr className="faded" />
+        <hr className="hr-faded" />
         <div className="flex jc-end gap-200 | modal-section" aria-label="ações da caixa de diálogo">
-          {!oneAction && <SecButton onClick={closeModal}>Cancelar</SecButton>}
-          <MainButton onClick={handleMainClick}>{mainAction}</MainButton>
+          {!oneAction && <Button onClick={closeModal}>Cancelar</Button>}
+          <Button main onClick={handleMainClick}>{mainAction}</Button>
         </div>
       </div>
     </dialog>

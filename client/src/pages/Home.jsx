@@ -1,5 +1,5 @@
 import HeroBanner from '@banners/HeroBanner';
-import MainButton from '@buttons/MainButton';
+import Button from '@buttons/Button';
 import Mosaic from '@components/Mosaic';
 import { Search, AddShoppingCart, LocalShipping, PersonAdd, LocationOn, Payment, Storefront, LocalOffer, History, Lock, Security, Storage, Cloud, Schema, ImportExport, ArrowUpward } from '@mui/icons-material';
 import { useRef } from 'react';
@@ -52,9 +52,9 @@ function Home() {
       <p>Antes de começar, lembre-se de não inserir nenhuma informação sensível como dados de cartões reais. Agora sim, explore o Cybershop e boas compras de mentira!</p>
       <br />
       <div className="flex jc-center">
-        <MainButton onClick={handleClick} ariaLabel="voltar ao topo">
+        <Button main onClick={handleClick} ariaLabel="voltar ao topo">
           <ArrowUpward />
-        </MainButton>
+        </Button>
       </div>
     </main>
     </>

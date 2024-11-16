@@ -10,7 +10,7 @@ function Footer() {
     font-size: var(--fs-300);
     line-height: 2;
     text-align: center;
-    color: var(--white-3);
+    color: var(--text-clr-3);
   `;
 
   return(

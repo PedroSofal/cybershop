@@ -7,6 +7,10 @@ import './css/util.css';
 import './css/elevation.css';
 import './css/layout.css';
 import './css/skeleton.css';
+
+import './css/themes/light.css';
+import './css/themes/dark.css';
+
 import './index.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(

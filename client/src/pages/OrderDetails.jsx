@@ -17,7 +17,7 @@ import { css } from '@emotion/react';
 const orderIdStyles = css`
   font-size: var(--fs-400);
   font-weight: normal;
-  color: var(--white-3);
+  color: var(--text-clr-3);
 `;
 
 function OrderDetails() {

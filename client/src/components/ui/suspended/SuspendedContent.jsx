@@ -13,7 +13,7 @@ function SuspendedContent({ htmlRef, styles, children }) {
   return (
     <div
       ref={htmlRef}
-      className="elv-2"
+      className="elv-suspended positive"
       css={[containerStyles, styles].filter(Boolean)}
     >
       {children}

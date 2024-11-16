@@ -1,7 +1,7 @@
 import { css } from '@emotion/react';
 
 const signalStyles = (status) => css`
-  --color: ${status === 'pago' ? 'lime' : 'cyan'};
+  --color: ${status === 'pago' ? 'var(--paid-clr)' : 'var(--pending-clr)'};
   width: min(8px, 1.4vw);
   height: min(8px, 1.4vw);
   border-radius: 50%;
