@@ -4,6 +4,7 @@ import { useContext, useEffect, useRef, useState } from 'react';
 
 // Contexts
 import AuthContext from '@authentication/contexts/AuthContext';
+import CartContext from '@shopping-cart/contexts/CartContext';
 
 // Components
 import Button from '@buttons/Button';
@@ -26,6 +27,7 @@ function Settings() {
   const buttonRef = useRef();
   const navigate = useNavigate();
   const { auth, logOut } = useContext(AuthContext);
+  const { clearCart } = useContext(CartContext);
   const [ error, setError ] = useState(false);
 
   useEffect(() => {
@@ -35,6 +37,7 @@ function Settings() {
   async function handleDeleteAccount() {
     try {
       await axios.delete(`${USERS_URL}/${auth.id}`);
+      clearCart();
       logOut();
       navigate('/');
     } catch (err) {
@@ -60,7 +63,7 @@ function Settings() {
         modalId="deleteAccountModal"
         htmlRef={dialogRef}
         title='Excluir conta?'
-        description='Você perderá todos os seus dados e registros de pedidos. Esta ação é permanente.'
+        description='Você perderá todos os dados salvos e registros de pedidos, e o carrinho de compras será esvaziado. Esta ação é permanente.'
         mainAction='Excluir'
         onConfirmation={handleDeleteAccount}
       />,

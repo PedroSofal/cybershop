@@ -40,7 +40,7 @@ function UserPreview() {
         modalId="logoutModal"
         htmlRef={dialogRef}
         title='Fazer logout?'
-        description='Você será desconectado da sua conta.'
+        description='Você será desconectado da sua conta. Seu carrinho de compras será salvo no estado atual para a próxima vez que você entrar.'
         mainAction='Logout'
         onConfirmation={handleLogOutClick}
       />,
