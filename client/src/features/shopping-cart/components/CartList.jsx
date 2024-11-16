@@ -16,6 +16,9 @@ import Menu from '@menus/Menu';
 import QuantityModal from '@components/QuantityModal';
 import ConfirmationModal from '@components/ConfirmationModal';
 
+// Utilities
+import { createPortal } from "react-dom";
+
 // Assets
 import { Delete, MoreVert } from '@mui/icons-material';
 
@@ -176,24 +179,27 @@ function CartList({ editable }) {
       </GlassContainer>
     </section>
 
-    <ConfirmationModal
-      modalId="deleteProductModal"
-      htmlRef={deleteRef}
-      title={toBeDeleted?.quantity > 1 ? `Excluir ${toBeDeleted?.quantity} produtos?` : 'Excluir produto?'}
-      description={
-        toBeDeleted?.quantity > 1 ? (
-          <>
-            Esta ação irá remover {toBeDeleted?.quantity} unidades do produto <span className="bold">{toBeDeleted?.title}</span> do seu carrinho
-          </>
-        ) : (
-          <>
-            Esta ação irá remover o produto <span className="bold">{toBeDeleted?.title}</span> do seu carrinho
-          </>
-        )
-      }      
-      mainAction={toBeDeleted?.quantity > 1 ? `Excluir todos` : 'Excluir'}
-      onConfirmation={confirmDelete}
-    />
+    {createPortal(
+      <ConfirmationModal
+        modalId="deleteProductModal"
+        htmlRef={deleteRef}
+        title={toBeDeleted?.quantity > 1 ? `Excluir ${toBeDeleted?.quantity} produtos?` : 'Excluir produto?'}
+        description={
+          toBeDeleted?.quantity > 1 ? (
+            <>
+              Esta ação irá remover {toBeDeleted?.quantity} unidades do produto <span className="bold">{toBeDeleted?.title}</span> do seu carrinho
+            </>
+          ) : (
+            <>
+              Esta ação irá remover o produto <span className="bold">{toBeDeleted?.title}</span> do seu carrinho
+            </>
+          )
+        }      
+        mainAction={toBeDeleted?.quantity > 1 ? `Excluir todos` : 'Excluir'}
+        onConfirmation={confirmDelete}
+      />,
+      document.body
+    )}
     </>
   );
 }
@@ -231,7 +237,11 @@ function MoreOptions({ product, handleItemClick, handleDeleteClick }) {
       contentRole="menu"
       contentLabel="opções"
     />
-    <QuantityModal htmlRef={quantityRef} product={product} />
+    
+    {createPortal(
+      <QuantityModal htmlRef={quantityRef} product={product} />,
+      document.body
+    )}
     </>
   );
 }

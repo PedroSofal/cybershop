@@ -5,7 +5,6 @@ import { useLocation } from 'react-router-dom';
 const itemStyles = css`
   position: relative;
   border-radius: 50%;
-  cursor: pointer;
 
   .circle-icon-container {
     font-size: var(--fs-600);

@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { useContext, useRef } from 'react';
+import { createPortal } from 'react-dom';
 import AuthContext from '@authentication/contexts/AuthContext';
 import CartContext from '@shopping-cart/contexts/CartContext';
 import ConfirmationModal from '@components/ConfirmationModal';
@@ -34,14 +35,17 @@ function UserPreview() {
       ]} />
     )}
 
-    <ConfirmationModal
-      modalId="logoutModal"
-      htmlRef={dialogRef}
-      title='Fazer logout?'
-      description='Você será desconectado da sua conta.'
-      mainAction='Logout'
-      onConfirmation={handleLogOutClick}
-    />
+    {createPortal(
+      <ConfirmationModal
+        modalId="logoutModal"
+        htmlRef={dialogRef}
+        title='Fazer logout?'
+        description='Você será desconectado da sua conta.'
+        mainAction='Logout'
+        onConfirmation={handleLogOutClick}
+      />,
+      document.body
+    )}
     </>
   );
 }

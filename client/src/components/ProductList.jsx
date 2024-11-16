@@ -8,6 +8,9 @@ import Price from '@components/ui/Price';
 import Button from '@buttons/Button';
 import QuantityModal from '@components/QuantityModal';
 
+// Utilities
+import { createPortal } from "react-dom";
+
 // Styles
 import { css } from '@emotion/react';
 
@@ -94,7 +97,10 @@ function ProductList({ products, withAddToCart }) {
       ))}
     </ul>
     
-    <QuantityModal htmlRef={quantityRef} product={selectedProduct} />
+    {createPortal(
+      <QuantityModal htmlRef={quantityRef} product={selectedProduct} />,
+      document.body
+    )}
     </>
   );
 }

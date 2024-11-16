@@ -12,6 +12,9 @@ import ConfirmationModal from '@components/ConfirmationModal';
 import { KeyboardDoubleArrowLeft, KeyboardDoubleArrowRight, RemoveShoppingCart } from '@mui/icons-material';
 import { useNavigate } from "react-router-dom";
 
+// Utilities
+import { createPortal } from "react-dom";
+
 // Styles
 import { css } from '@emotion/react';
 import mq from "@utils/getMediaQueries";
@@ -77,14 +80,17 @@ function CartActions({ deliveryMethod }) {
       </div>
     </section>
 
-    <ConfirmationModal
-      modalId="clearCartModal"
-      htmlRef={dialogRef}
-      title='Limpar carrinho?'
-      description='Todos os itens serão removidos do carrinho'
-      mainAction='Limpar'
-      onConfirmation={clearCart}
-    />
+    {createPortal(
+      <ConfirmationModal
+        modalId="clearCartModal"
+        htmlRef={dialogRef}
+        title='Limpar carrinho?'
+        description='Todos os itens serão removidos do carrinho'
+        mainAction='Limpar'
+        onConfirmation={clearCart}
+      />,
+      document.body
+    )}
     </>
   );
 }

@@ -20,6 +20,7 @@ import Menu from '@components/ui/menus/Menu';
 
 // Utilities
 import { formatDate, formatHour } from '@utils/formatTime';
+import { createPortal } from "react-dom";
 
 // API
 import axios from '@services/axios';
@@ -182,14 +183,17 @@ function MyOrders() {
       ))}
     </ol>
 
-    <ConfirmationModal
-      modalId="deleteOrderModal"
-      htmlRef={dialogRef}
-      title="Excluir pedido?"
-      description="Esta ação irá excluir o pedido do histórico de transações do usuário e não pode ser desfeita."
-      mainAction="Excluir"
-      onConfirmation={deleteOrder}
-    />
+    {createPortal(
+      <ConfirmationModal
+        modalId="deleteOrderModal"
+        htmlRef={dialogRef}
+        title="Excluir pedido?"
+        description="Esta ação irá excluir o pedido do histórico de transações do usuário e não pode ser desfeita."
+        mainAction="Excluir"
+        onConfirmation={deleteOrder}
+      />,
+      document.body
+    )}
     </>
   );
 }

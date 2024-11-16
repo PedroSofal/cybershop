@@ -10,6 +10,9 @@ import Button from '@buttons/Button';
 import ConfirmationModal from '@components/ConfirmationModal';
 import ServerError from '@components/ui/ServerError';
 
+// Utilities
+import { createPortal } from "react-dom";
+
 // API
 import axios from '@services/axios';
 
@@ -52,14 +55,17 @@ function Settings() {
       icon={<Delete />}
     >Excluir Conta</Button>
 
-    <ConfirmationModal
-      modalId="deleteAccountModal"
-      htmlRef={dialogRef}
-      title='Excluir conta?'
-      description='Você perderá todos os seus dados e registros de pedidos. Esta ação é permanente.'
-      mainAction='Excluir'
-      onConfirmation={handleDeleteAccount}
-    />
+    {createPortal(
+      <ConfirmationModal
+        modalId="deleteAccountModal"
+        htmlRef={dialogRef}
+        title='Excluir conta?'
+        description='Você perderá todos os seus dados e registros de pedidos. Esta ação é permanente.'
+        mainAction='Excluir'
+        onConfirmation={handleDeleteAccount}
+      />,
+      document.body
+    )}
     </>
   );
 }

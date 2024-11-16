@@ -23,6 +23,7 @@ import BannerSuperWide from '@banners/BannerSuperWide';
 
 // Utilities
 import formatPriceToBRL from '@utils/formatPriceToBRL';
+import { createPortal } from "react-dom";
 
 // Styles
 import { css } from '@emotion/react';
@@ -166,15 +167,18 @@ function ProductPage() {
       </section>
     </main>
 
-    <ConfirmationModal
-      modalId="freightModal"
-      htmlRef={modalRef}
-      title="Informações de frete"
-      description={freightResult}
-      mainAction="Fechar"
-      onConfirmation={() => modalRef.current.close()}
-      oneAction
-    />
+    {createPortal(
+      <ConfirmationModal
+        modalId="freightModal"
+        htmlRef={modalRef}
+        title="Informações de frete"
+        description={freightResult}
+        mainAction="Fechar"
+        onConfirmation={() => modalRef.current.close()}
+        oneAction
+      />,
+      document.body
+    )}
     </>
   );
 }
