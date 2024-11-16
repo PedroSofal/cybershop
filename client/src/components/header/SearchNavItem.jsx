@@ -19,7 +19,6 @@ function SearchNavItem() {
   
   return (
     <SuspendedButton
-      id="mobileSearchButton"
       ariaLabel="pesquisar"
       onClick={handleClick}
     >

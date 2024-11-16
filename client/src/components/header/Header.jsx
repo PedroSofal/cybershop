@@ -15,8 +15,10 @@ const headerContainerStyles = css`
 `;
 
 const headerStyles = css`
+  --logo-width: calc(var(--fs-900) * 5);
+  
   display: grid;
-  grid-template-columns: calc(var(--fs-900) * 5) 1fr auto;
+  grid-template-columns: var(--logo-width) 1fr auto;
   grid-template-areas: 'logo search nav';
   justify-content: space-between;
   align-items: center;
@@ -24,12 +26,14 @@ const headerStyles = css`
   row-gap: var(--ws-400);
   padding-block: var(--ws-400);
 
-  #mobileSearchButton {
+  #navSection > nav > ul > li:first-of-type {
+    margin-right: calc(var(--ws-300) * -1);
     display: none;
   }
 
   ${mq('tablet')} {
-    grid-template-columns: calc(var(--fs-900) * 5) 1fr;
+    grid-template-columns: var(--logo-width) 1fr;
+    grid-template-areas: 'logo nav';
 
     &.search-visible {
       grid-template-areas: 'logo nav' 'search search';
@@ -39,7 +43,7 @@ const headerStyles = css`
       display: none;
     }
 
-    #mobileSearchButton,
+    #navSection > nav > ul > li:first-of-type,
     &.search-visible #searchSection {
       display: block;
     }
