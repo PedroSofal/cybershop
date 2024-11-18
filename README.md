@@ -16,19 +16,21 @@ O procedimento de checkout permite a escolha de formas de entrega e métodos de 
 
 - Responsividade: O site utiliza um sistema fluido de medidas para o tamanho das fontes e dos espaços negativos, graças ao sistema revolucionário criado pelos geniais fundadores do [Utopia](https://utopia.fyi/). O site se comporta bem na grande maioria dos tamanhos de tela com apenas um media query, e já possui atualizações de melhoria a caminho.
 
-- Temas claro/escuro: Em breve.
+- Temas claro/escuro.
 
-- Autenticação do usuário: a autenticação é feita a partir de um simples id, já que o json-server não suporta o uso de tokens de autenticação nativamente. Uma atualização de middleware está prevista para sanar este problema.
+- Autenticação do usuário: a autenticação é feita com JWTs (Json Web Tokens). Quando um usuário faz login, dois tokens são gerados: um access token de curta duração que vive apenas na memória do React, e um refresh token de longa duração que vive apenas no backend, em forma de cookie http-only. O access token é usado para autenticar o usuário em todas as requisições feitas ao banco de dados. Sempre que o servidor recebe um access token inexistente um inválido, ele tentará gerar um novo, caso o refresh token ainda esteja ativo. Isso permite que o usuário permaneça autenticado mesmo depois de fechar o navegador, sem a necessidade de armazenar tokens no local storage.
+
+A comunicação do front com o backend é feita através de uma instância dedicada do axios, que usa interceptadores de requisições e respostas para lidar com os dados de autenticação.
 
 - Route Guard: O redirecionamento de rotas foi aplicado com o react-router-dom para evitar que o usuário acesse etapas do checkout prematuramente, e para proteger áreas exclusivas para usuários logados.
 
 - Integrações de API: a aplicação usa Axios para requisitar produtos da fakestoreapi, bem como para performar operações CRUD no banco de dados do json-server.
 
-- Middlewares: alguns incrementos precisam ser feitos ao json-server para lidar, por exemplo, com erros específicos, o que é alcançado através da configuração de middlewares no entry point do servidor.
+- Middlewares: vários middlewares são usados para lidar com a autenticação do usuário, a proteção de rotas, entre outras necessidades.
 
 ## Projeto Online
 
-Você pode visitar a loja online [aqui](https://cybershop-client.onrender.com/).
+Você pode visitar a loja online [aqui](https://cybershop-client.onrender.com/). Nota: por estar hospedado em um plano gratuito do Render, a primeira interação com o site pode demorar alguns segundos para ter resposta.
 
 ## Contribuição
 

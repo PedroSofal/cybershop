@@ -39,7 +39,7 @@ function Home() {
     <main className="text-grid text-long">
       <h1 ref={titleRef} tabIndex={-1}>Bem-vindo ao Cybershop!</h1>
       <br />
-      <p>Este é um projeto de loja virtual desenvolvido com React, onde você pode explorar uma série de funcionalidades que simulam uma experiência quase completa de um e-commerce.</p>
+      <p>Este é um projeto de loja virtual desenvolvido com React + node.js, onde você pode explorar uma série de funcionalidades que simulam uma experiência quase completa de um e-commerce.</p>
       <br />
       <Mosaic list={uxCards} ariaLabel="funcionalidades que podem ser exploradas pelo usuário" />
       <br />
