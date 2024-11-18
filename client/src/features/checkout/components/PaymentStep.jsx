@@ -128,7 +128,7 @@ function PaymentStep() {
               />
               <FormFooter>
                 <BackButton />
-                <Button disabled={!isFormValid}>
+                <Button main disabled={!isFormValid}>
                   Avançar para revisão da compra
                 </Button>
               </FormFooter>
