@@ -43,11 +43,12 @@ async function validateUserCredentials(req, res, next) {
   }
 
   const user = router.db.get('users').find({ username }).value();
+  console.log('User found:', user);
+  console.log('Router.db', router.db);
   
   if (!user) {
     return res.status(403).json({ message: 'Usuário não encontrado' });
   }
-  console.log('User found:', user);
   const isPasswordValid = await bcrypt.compare(password, user.password);
   console.log('Password is valid:', isPasswordValid);
   if (!isPasswordValid) {
