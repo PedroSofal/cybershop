@@ -178,6 +178,11 @@ server.get('/orders/*', authenticateAccessToken, (req, res) => {
   res.json(order);
 });
 
+server.get('/username', authenticateAccessToken, (req, res) => {
+  const { username } = req.user;
+  res.json(username);
+});
+
 server.use(jsonServer.rewriter(routes));
 
 server.use(router);
