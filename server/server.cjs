@@ -36,7 +36,8 @@ function generateRefreshToken(user) {
 
 async function validateUserCredentials(req, res, next) {
   const { username, password } = req.body;
-
+  console.log('Username:', username);
+  
   if (!username || !password) {
     return res.status(400).json({ message: 'Username e senha são obrigatórios' });
   }
@@ -46,9 +47,9 @@ async function validateUserCredentials(req, res, next) {
   if (!user) {
     return res.status(403).json({ message: 'Usuário não encontrado' });
   }
-
+  console.log('User found:', user);
   const isPasswordValid = await bcrypt.compare(password, user.password);
-
+  console.log('Password is valid:', isPasswordValid);
   if (!isPasswordValid) {
     return res.status(403).json({ message: 'Não autorizado' });
   }
