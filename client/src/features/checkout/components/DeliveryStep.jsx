@@ -28,11 +28,6 @@ import { dbAPI } from '@services/axios';
 // Styles
 import { css } from '@emotion/react';
 
-const separatorStyles = css`
-  margin-block: var(--ws-400);
-  opacity: 0.1;
-`;
-
 const PERSONAL_DATA_URL = '/data/personal';
 const ADDRESS_DATA_URL = '/data/address';
 const personalFields = getFieldset('personal', 'essentialsOnly');
@@ -197,7 +192,7 @@ function DeliveryStep() {
       />
       {deliveryMethod !== 'pick-up' &&
         <>
-        <hr css={separatorStyles} />
+        <hr className="hr-faded" css={css`margin-block: var(--ws-400);`} />
         <AddressFieldset
           setValues={setAddressValues}
           setIsValid={setIsAddressValid}
