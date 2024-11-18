@@ -161,7 +161,7 @@ export function CartProvider({ children }) {
       setCartItems(sessionCartArray);
       // console.log('got session storage cart: ', sessionCartArray);
     }
-  }, [isAuthLoading]);
+  }, [isAuthLoading, token]);
 
   useEffect(() => {
     // console.log('---SECOND EFFECT: SET DATA---');
