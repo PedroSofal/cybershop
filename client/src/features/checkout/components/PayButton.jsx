@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 
 // Contexts
-import AuthContext from '@authentication/contexts/AuthContext';
 import CheckoutContext from '@checkout/contexts/CheckoutContext';
 import CartContext from '@shopping-cart/contexts/CartContext';
 
@@ -11,13 +10,12 @@ import CartContext from '@shopping-cart/contexts/CartContext';
 import Button from '@buttons/Button';
 
 // API
-import axios from '@services/axios';
+import { dbAPI } from '@services/axios';
 
-const ORDERS_URL = '/orders';
+const ORDERS_URL = '/data/orders';
 
 function PayButton({ disabled }) {
   const navigate = useNavigate();
-  const { auth } = useContext(AuthContext);
   const { getAllOrderInfos } = useContext(CheckoutContext);
   const { clearCart } = useContext(CartContext);
   const orderInfos = getAllOrderInfos();
@@ -39,9 +37,9 @@ function PayButton({ disabled }) {
     e.preventDefault();
 
     try {
-      const orderPatched = await axios.post(
+      const orderPatched = await dbAPI.post(
         ORDERS_URL,
-        { ...orderInfos, status: status, userId: auth.id }
+        { ...orderInfos, status: status }
       );
       if (orderPatched) {
         clearCart();

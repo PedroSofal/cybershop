@@ -1,10 +1,7 @@
 // Hooks
 import { useNavigate } from 'react-router-dom';
-import { useContext, useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import useFetchData from '@hooks/useFetchData';
-
-// Contexts
-import AuthContext from '@authentication/contexts/AuthContext';
 
 // Components
 import EmptyList from '@components/EmptyList';
@@ -23,7 +20,7 @@ import { formatDate, formatHour } from '@utils/formatTime';
 import { createPortal } from "react-dom";
 
 // API
-import axios from '@services/axios';
+import { dbAPI } from '@services/axios';
 
 // Assets
 import { Delete, MoreVert } from '@mui/icons-material';
@@ -31,7 +28,7 @@ import { Delete, MoreVert } from '@mui/icons-material';
 // Styles
 import { css } from '@emotion/react';
 
-const DATA_URL = '/orders';
+const DATA_URL = '/data/orders';
 
 const itemStyles = css`
   display: grid;
@@ -88,10 +85,13 @@ function MyOrders() {
   const dialogRef = useRef();
   const firstOrderRef = useRef();
   const navigate = useNavigate();
-
-  const { auth } = useContext(AuthContext);
   
-  const { dataList: orderList, isLoading, error: fetchError, refetch } = useFetchData(`${DATA_URL}?userId=${auth.id}`);
+  const {
+    dataList: orderList,
+    isLoading,
+    error: fetchError,
+    refetch
+  } = useFetchData(DATA_URL);
   
   const [ error, setError ] = useState(false);
   const [ selectedOrderId, setSelectedOrderId ] = useState(null);
@@ -111,7 +111,7 @@ function MyOrders() {
     if (orderList.length === 0) return;
     
     try {
-      await axios.delete(`${DATA_URL}/${selectedOrderId}`);
+      await dbAPI.delete(`${DATA_URL}/${selectedOrderId}`);
       refetch();
     } catch (err) {
       console.error(err);
@@ -120,7 +120,6 @@ function MyOrders() {
   }
 
   function handleOrderClick(orderId) {
-    console.log('teste')
     navigate(`/perfil/pedidos/${orderId}`);
   }
 

@@ -1,7 +1,7 @@
 // Hooks
 import { Navigate, useNavigate, useParams } from 'react-router-dom';
 import { useContext, useEffect, useRef, useState } from 'react';
-import useFetchData from '@hooks/useFetchData';
+import useFetchFromStore from '@hooks/useFetchFromStore';
 
 // Contexts
 import CartContext from '@shopping-cart/contexts/CartContext';
@@ -48,7 +48,7 @@ const gridStyles = css`
   }
 `;
 
-const DATA_URL = 'https://fakestoreapi.com/products';
+const DATA_URL = '/products';
 
 function ProductPage() {
   const navigate = useNavigate();
@@ -65,7 +65,7 @@ function ProductPage() {
   const { confirmQuantity } = useContext(CartContext);
   const { shippingInfo } = useContext(ShippingContext);
 
-  const { dataList: displayedProduct, isLoading, error } = useFetchData(`${DATA_URL}/${id}`);
+  const { dataList: displayedProduct, isLoading, error } = useFetchFromStore(`${DATA_URL}/${id}`);
 
   useEffect(() => {
     if (!isLoading) {

@@ -32,7 +32,7 @@ const loaderStyles = css`
 `;
 
 function RequireAuth() {
-  const { auth, isAuthLoading } = useContext(AuthContext);
+  const { token, isAuthLoading } = useContext(AuthContext);
   const location = useLocation();
   const state = { ...location.state, from: location.pathname }
   
@@ -46,7 +46,7 @@ function RequireAuth() {
   }
 
   return (
-    auth?.id ? <Outlet /> : <Navigate to="/login" state={state} replace />
+    token ? <Outlet /> : <Navigate to="/login" state={state} replace />
   );
 }
 

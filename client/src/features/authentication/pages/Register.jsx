@@ -19,9 +19,8 @@ import getFieldset from '@utils/getFieldset';
 import preventInvalidSubmission from '@utils/preventInvalidSubmission';
 
 // API
-import axios from '@services/axios';
+import { dbAPI } from '@services/axios';
 
-const USERS_URL = '/users';
 const fields = getFieldset('register');
 
 function Register() {  
@@ -50,26 +49,32 @@ function Register() {
     e.preventDefault();
     if (preventInvalidSubmission(isFormValid, setErrMsg, errRef)) return;
     
+    const username = formValues.username;
+    const password = formValues.password;
+
     setIsSubmitting(true);
     setIsAuthLoading(true);
 
     try {
-      const response = await axios.post(
-        USERS_URL,
-        { username: formValues.username, password: formValues.password }
+      const response = await dbAPI.post(
+        '/auth/register',
+        { username: username, password: password }
       );
       
-      const { id } = response.data;
-      logIn(formValues.username, id);
-      setSuccess(true);
-    } catch (err) {
-      if (!err?.response) {
+      if (response.status === 201) {
+        logIn(username, password);
+        setSuccess(true);
+      } else {
+        setErrMsg('Erro inesperado');
+      }
+    } catch (error) {
+      if (!error?.response) {
         setErrMsg('Sem resposta do servidor');
-      } else if (err.response?.status === 409) {
+      } else if (error.response?.status === 409) {
         setErrMsg('Nome de usuário já existe');
       } else {
         setErrMsg('Erro inesperado');
-        console.error(err);
+        console.error(error);
       }
       errRef.current.focus();
     } finally {

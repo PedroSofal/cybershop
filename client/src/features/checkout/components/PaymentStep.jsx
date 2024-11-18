@@ -7,7 +7,6 @@ import useHandleGenericInputChange from '@hooks/useHandleGenericInputChange';
 
 // Contexts
 import CheckoutContext from '@checkout/contexts/CheckoutContext';
-import AuthContext from '@authentication/contexts/AuthContext';
 
 // Components
 import Form from '@forms/Form';
@@ -20,24 +19,23 @@ import PaymentOptions from '@checkout/components/PaymentOptions'
 import PromoCodeForm from '@checkout/components/PromoCodeForm';
 
 // API
-import axios from '@services/axios';
+import { dbAPI } from '@services/axios';
 
 // Utilities
 import getFieldset from '@utils/getFieldset';
 import preventInvalidSubmission from '@utils/preventInvalidSubmission';
 
-const DATA_URL = '/card-data';
+const DATA_URL = '/data/card';
 const fields = getFieldset('card', 'essentialsOnly');
 
 const emptyFields = {};
 fields.map(field => emptyFields[field.id] = '');
 
 function PaymentStep() {
-  const { auth } = useContext(AuthContext);
   const { next, getOrderInfo, setOrderInfo, removeOrderInfo } = useContext(CheckoutContext);
   const paymentMethod = getOrderInfo('paymentMethod');
   
-  const { dataList: cardDataList, isLoading } = useFetchData(`${DATA_URL}?userId=${auth.id}`);
+  const { dataList: cardDataList, isLoading } = useFetchData(DATA_URL);
 
   const {
     errRef,
@@ -75,9 +73,9 @@ function PaymentStep() {
       const placeholderNickname = `Meu cartão ${cardDataList.length + 1}`;
 
       try {
-        await axios.post(
+        await dbAPI.post(
           DATA_URL,
-          { ...formValues, nickname: placeholderNickname, userId: auth.id }
+          { ...formValues, nickname: placeholderNickname }
         );
       } catch (error) {
         console.error(error);

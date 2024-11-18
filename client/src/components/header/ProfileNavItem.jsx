@@ -9,11 +9,11 @@ import SuspendedOnHover from '@components/ui/suspended/SuspendedOnHover';
 import { css } from '@emotion/react';
 
 function ProfileNavItem() {
-  const { auth } = useContext(AuthContext);
+  const { token } = useContext(AuthContext);
 
   return (
     <SuspendedOnHover
-      button={auth?.id
+      button={token
         ? <ProfilePicture styles={css`border: 1px solid var(--text-clr-1);`} />
         : <CircleIconContainer ariaLabel="perfil do usuário"><PersonIcon /></CircleIconContainer>
       }

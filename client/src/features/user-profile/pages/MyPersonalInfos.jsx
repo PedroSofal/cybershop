@@ -1,11 +1,7 @@
 // Hooks
-import { useContext } from 'react';
 import useFetchData from '@hooks/useFetchData';
 import useForm from '@hooks/useForm';
 import useInitializeData from '@hooks/useInitializeData';
-
-// Contexts
-import AuthContext from '@authentication/contexts/AuthContext';
 
 // Components
 import Form from '@forms/Form';
@@ -18,14 +14,13 @@ import getFieldset from '@utils/getFieldset';
 import preventInvalidSubmission from '@utils/preventInvalidSubmission';
 
 // API
-import axios from '@services/axios';
+import { dbAPI } from '@services/axios';
 
-const DATA_URL = '/personal-data';
+const DATA_URL = '/data/personal';
 const fields = getFieldset('personal');
 
 function MyPersonalInfos() {
-  const { auth } = useContext(AuthContext);
-  const { dataList, isLoading, error, refetch } = useFetchData(`${DATA_URL}?userId=${auth.id}`);
+  const { dataList, isLoading, error, refetch } = useFetchData(DATA_URL);
 
   const {
     errRef,
@@ -53,15 +48,15 @@ function MyPersonalInfos() {
     try {
       // posts personal info data for the first time
       if (dataList.length === 0) {
-        await axios.post(
+        await dbAPI.post(
           DATA_URL,
-          { ...formValues, userId: auth.id }
+          { ...formValues }
         );
       // updates personal info data
       } else {
-        await axios.put(
+        await dbAPI.put(
           `${DATA_URL}/${dataList[0].id}`,
-          { ...formValues, userId: auth.id }
+          { ...formValues }
         );
       }
       setSuccess(true);

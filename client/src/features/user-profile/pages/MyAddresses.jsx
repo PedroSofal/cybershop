@@ -1,13 +1,10 @@
 // Hooks
-import { useContext, useState } from 'react';
+import { useState } from 'react';
 import useFetchData from '@hooks/useFetchData';
 import useForm from '@hooks/useForm';
 import useInitializeData from '@hooks/useInitializeData';
 import useHandleGenericInputChange from '@hooks/useHandleGenericInputChange';
 import useHandleZipCodeChange from '@hooks/useHandleZipCodeChange';
-
-// Contexts
-import AuthContext from '@authentication/contexts/AuthContext';
 
 // Complements
 import Form from '@forms/Form';
@@ -22,20 +19,19 @@ import getFieldset from '@utils/getFieldset';
 import preventInvalidSubmission from '@utils/preventInvalidSubmission';
 
 // API
-import axios from '@services/axios';
+import { dbAPI } from '@services/axios';
 
 // Assets
 import { Add } from '@mui/icons-material';
 
-const DATA_URL = '/address-data';
+const DATA_URL = '/data/address';
 const fields = getFieldset('address');
 
 const emptyFields = {};
 fields.map(field => emptyFields[field.id] = '');
 
 function MyAddresses() {
-  const { auth } = useContext(AuthContext);
-  const { dataList, isLoading, error, refetch } = useFetchData(`${DATA_URL}?userId=${auth.id}`);
+  const { dataList, isLoading, error, refetch } = useFetchData(DATA_URL);
 
   const {
     errRef,
@@ -78,18 +74,18 @@ function MyAddresses() {
     try {
       // posts new data if the user is creating a new one
       if (isAddingData) {
-        const newData = await axios.post(
+        const newData = await dbAPI.post(
           DATA_URL,
-          { ...formValues, userId: auth.id }
+          { ...formValues }
         );
         setIsAddingData(false);
         refetch();
         setSelectedDataId(newData.data.id);
         // updates selected data
       } else {
-        await axios.put(
+        await dbAPI.put(
           `${DATA_URL}/${selectedDataId ? selectedDataId : dataList[0].id}`,
-          { ...formValues, userId: auth.id }
+          { ...formValues }
         );
         refetch();
       }

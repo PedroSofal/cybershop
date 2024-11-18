@@ -1,10 +1,8 @@
 import { useMemo } from "react";
-import useFetchData from "@hooks/useFetchData";
-
-const DATA_URL = 'https://fakestoreapi.com/products';
+import useFetchFromStore from "@hooks/useFetchFromStore";
 
 function useSearch(searchTerm) {
-  const { dataList, isLoading, error } = useFetchData(DATA_URL);
+  const { dataList, isLoading, error } = useFetchFromStore('/products');
 
   const searchResults = useMemo(() => {
     return dataList.filter(product => {

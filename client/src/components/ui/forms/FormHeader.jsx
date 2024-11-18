@@ -6,7 +6,7 @@ import Button from '@buttons/Button';
 import DataSelector from '@forms/DataSelector';
 
 // API
-import axios from '@services/axios';
+import { dbAPI } from '@services/axios';
 
 // Assets
 import { Add, Delete } from '@mui/icons-material';
@@ -62,7 +62,7 @@ function FormHeader({
     if (dataList.length === 0) return;
 
     try {
-      const response = await axios.delete(dataUrl);
+      const response = await dbAPI.delete(dataUrl);
       if (response.status == 200) {
         refetch();
       }

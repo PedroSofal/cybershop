@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from 'react';
-import { dbAPI } from '@services/axios';
+import { storeAPI } from '@services/axios';
 
-function useFetchData(dataUrl) {
+function useFetchFromStore(dataUrl) {
   const [ dataList, setDataList ] = useState([]);
   const [ isLoading, setIsLoading ] = useState(true);
   const [ error, setError ] = useState(null);
@@ -11,7 +11,7 @@ function useFetchData(dataUrl) {
     setError(null);
 
     try {
-      const response = await dbAPI.get(dataUrl);
+      const response = await storeAPI.get(dataUrl);
       
       if (response.status === 200) {
         setDataList(response.data);
@@ -31,4 +31,4 @@ function useFetchData(dataUrl) {
   return { dataList, isLoading, error, refetch: fetchData };
 }
 
-export default useFetchData;
+export default useFetchFromStore;

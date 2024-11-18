@@ -17,9 +17,8 @@ import getFieldset from '@utils/getFieldset';
 import preventInvalidSubmission from '@utils/preventInvalidSubmission';
 
 // API
-import axios from '@services/axios';
+import { dbAPI } from '@services/axios';
 
-const USERS_URL = '/users';
 const fields = getFieldset('login');
 
 function Login() {
@@ -28,7 +27,7 @@ function Login() {
   const from = location.state?.from || '/';
   const state = { ...location.state }
   
-  const { auth, logIn, setIsAuthLoading } = useContext(AuthContext);
+  const { token, logIn, setIsAuthLoading } = useContext(AuthContext);
 
   const {
     errRef,
@@ -46,31 +45,36 @@ function Login() {
     e.preventDefault();
     if (preventInvalidSubmission(isFormValid, setErrMsg, errRef)) return;
 
+    const username = formValues.username;
+    const password = formValues.password;
+
     setIsSubmitting(true);
     setIsAuthLoading(true);
 
     try {
-      const response = await axios.get(USERS_URL);
-      const user = response.data.find(user => {
-        return user.username === formValues.username && user.password === formValues.password;
-      });
-      
-      if (user) {
-        logIn(user.username, user.id);
+      const response = await dbAPI.post(
+        '/auth/login',
+        { username: username, password: password }
+      );
+
+      if (response.status === 200) {
+        logIn(username, password);
         navigate(from, {state: state, replace: true });
       } else {
-        setErrMsg('Usuário ou senha inválidos');
+        setErrMsg('Erro inesperado');
       }
-    } catch (err) {
-      if (!err?.response) {
+    } catch (error) {
+      if (!error.response) {
         setErrMsg('Sem resposta do servidor');
-      } else if (err.response?.status === 400 || err.response?.status === 401) {
+      } else if (error.response?.status === 401) {
         setErrMsg('Preencha todos os campos');
+      } else if (error.response?.status === 403) {
+        setErrMsg('Usuário ou senha inválidos');
       } else {
         setErrMsg('Erro inesperado');
       }
       errRef.current.focus();
-      console.error(err);
+      console.error(error);
     } finally {
       setIsSubmitting(false);
       setIsAuthLoading(false);
@@ -78,7 +82,7 @@ function Login() {
   }
   
   return (
-    auth?.id
+    token
       ? <Navigate to="/" />
       : (
         <main className="fullscreen-centered gap-400" aria-label="fazer login">

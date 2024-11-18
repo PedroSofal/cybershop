@@ -11,7 +11,7 @@ function UserPreview() {
   const dialogRef = useRef();
 
   const { clearCart } = useContext(CartContext);
-  const { auth, logOut } = useContext(AuthContext);
+  const { token, logOut } = useContext(AuthContext);
 
   function handleLogOutClick() {
     dialogRef.current.close();
@@ -22,7 +22,7 @@ function UserPreview() {
 
   return (
     <>
-    {auth ? (
+    {token ? (
       <Menu list={[
         { text: 'Minha conta', action: () => navigate('/perfil') },
         { text: 'Meus pedidos', action: () => navigate('/perfil/pedidos') },

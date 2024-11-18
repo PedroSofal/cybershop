@@ -1,10 +1,10 @@
 import { createContext, useContext, useEffect, useMemo, useState } from 'react';
-import axios from '@services/axios';
+import { dbAPI } from '@services/axios';
 import AuthContext from '@authentication/contexts/AuthContext';
 import CartSelectModal from '@shopping-cart/components/CartSelectModal';
 import debounce from 'lodash.debounce';
 
-const DATA_URL = '/carts';
+const DATA_URL = '/data/carts';
 
 const CartContext = createContext({
   cartItems: [],
@@ -17,7 +17,7 @@ const CartContext = createContext({
 });
 
 export function CartProvider({ children }) {
-  const { auth, isAuthLoading } = useContext(AuthContext);
+  const { token, isAuthLoading } = useContext(AuthContext);
   const [ cartItems, setCartItems ] = useState([]);
   const [ cartConflict, setCartConflict ] = useState(null);
 
@@ -53,6 +53,7 @@ export function CartProvider({ children }) {
   }
   
   function clearCart() {
+    sessionStorage.removeItem('cartItems');
     setCartItems([]);
   }
 
@@ -71,7 +72,7 @@ export function CartProvider({ children }) {
     // console.log('fetching user cart from database');
 
     try {
-      const response = await axios.get(`${DATA_URL}?userId=${auth.id}`);
+      const response = await dbAPI.get(DATA_URL);
       const existingCart = response.data[0];
 
       if (!existingCart) {
@@ -104,7 +105,7 @@ export function CartProvider({ children }) {
       // console.log('updating database cart');
 
       try {
-        const response = await axios.get(`${DATA_URL}?userId=${auth.id}`);
+        const response = await dbAPI.get(DATA_URL);
         const existingCart = response.data[0];
 
         if (!existingCart && cartItems.length === 0) {
@@ -115,7 +116,7 @@ export function CartProvider({ children }) {
         
         if (!existingCart && cartItems.length > 0) {
           // there's no cart saved in user's account, so create one with the new items
-          await axios.post(DATA_URL, { userId: auth.id, items: cartItems });
+          await dbAPI.post(DATA_URL, { items: cartItems });
           // console.log('created cart in database: ', cartItems);
           return;
         }
@@ -125,14 +126,14 @@ export function CartProvider({ children }) {
         
         if (newCartContainsChanges && cartItems.length > 0) {
           // update user's cart with the new items
-          await axios.put(`${DATA_URL}/${existingCart.id}`, { userId: auth.id, items: cartItems });
+          await dbAPI.put(`${DATA_URL}/${existingCart.id}`, { items: cartItems });
           // console.log('edited cart in database: ', cartItems);
           return;
         }
         
         if (newCartContainsChanges  && cartItems.length === 0) {
           // delete user's cart since there are zero items to be placed in it
-          await axios.delete(`${DATA_URL}/${existingCart.id}`);
+          await dbAPI.delete(`${DATA_URL}/${existingCart.id}`);
           // console.log('deleted cart in database');
           return;
         }
@@ -152,7 +153,7 @@ export function CartProvider({ children }) {
     const sessionCartString = sessionStorage.getItem('cartItems');
     const sessionCartArray = JSON.parse(sessionCartString || '[]');
 
-    if (auth?.id) {
+    if (token) {
       // the user is logged in, so search for a cart saved in his account
       fetchUserCart(sessionCartString, sessionCartArray);
     } else {
@@ -171,7 +172,7 @@ export function CartProvider({ children }) {
     sessionStorage.setItem('cartItems', newCartString);
     // console.log('set cart items in session storage: ', cartItems);
 
-    if (auth?.id) {
+    if (token) {
       // the user is logged in, so also update the database
       updateDatabaseCart(newCartString);
     }

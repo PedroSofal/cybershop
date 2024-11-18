@@ -8,7 +8,6 @@ import useHandleZipCodeChange from '@hooks/useHandleZipCodeChange';
 
 // Contexts
 import CheckoutContext from '@checkout/contexts/CheckoutContext';
-import AuthContext from '@authentication/contexts/AuthContext';
 
 // Components
 import Form from '@forms/Form';
@@ -24,7 +23,7 @@ import getFieldset from '@utils/getFieldset';
 import preventInvalidSubmission from '@utils/preventInvalidSubmission';
 
 // API
-import axios from '@services/axios';
+import { dbAPI } from '@services/axios';
 
 // Styles
 import { css } from '@emotion/react';
@@ -34,13 +33,13 @@ const separatorStyles = css`
   opacity: 0.1;
 `;
 
-const PERSONAL_DATA_URL = '/personal-data';
-const ADDRESS_DATA_URL = '/address-data';
+const PERSONAL_DATA_URL = '/data/personal';
+const ADDRESS_DATA_URL = '/data/address';
 const personalFields = getFieldset('personal', 'essentialsOnly');
 const addressFields = getFieldset('address', 'essentialsOnly');
 
-function PersonalFieldset({ setValues, setIsValid, setIsLoading, setIsNewData, userId }) {
-  const { dataList, isLoading } = useFetchData(`${PERSONAL_DATA_URL}?userId=${userId}`);
+function PersonalFieldset({ setValues, setIsValid, setIsLoading, setIsNewData }) {
+  const { dataList, isLoading } = useFetchData(PERSONAL_DATA_URL);
   
   const {
     formValues,
@@ -69,8 +68,8 @@ function PersonalFieldset({ setValues, setIsValid, setIsLoading, setIsNewData, u
   );
 }
 
-function AddressFieldset({ setValues, setIsValid, setIsLoading, setIsNewData, userId }) {
-  const { dataList, isLoading } = useFetchData(`${ADDRESS_DATA_URL}?userId=${userId}`);
+function AddressFieldset({ setValues, setIsValid, setIsLoading, setIsNewData }) {
+  const { dataList, isLoading } = useFetchData(ADDRESS_DATA_URL);
 
   const {
     formValues,
@@ -123,7 +122,6 @@ function AddressFieldset({ setValues, setIsValid, setIsLoading, setIsNewData, us
 function DeliveryStep() {
   const errRef = useRef();
 
-  const { auth } = useContext(AuthContext);
   const { next, getOrderInfo, setOrderInfo, removeOrderInfo } = useContext(CheckoutContext);
   const deliveryMethod = getOrderInfo('deliveryMethod');
 
@@ -155,9 +153,9 @@ function DeliveryStep() {
 
     if (isNewPersonal) {
       try {
-        await axios.post(
+        await dbAPI.post(
           PERSONAL_DATA_URL,
-          { ...personalValues, userId: auth.id }
+          { ...personalValues }
         );
       } catch (error) {
         console.error(error);
@@ -166,9 +164,9 @@ function DeliveryStep() {
 
     if (isNewAddress) {
       try {
-        await axios.post(
+        await dbAPI.post(
           ADDRESS_DATA_URL,
-          { ...addressValues, userId: auth.id }
+          { ...addressValues }
         );
       } catch (error) {
         console.error(error);
@@ -196,7 +194,6 @@ function DeliveryStep() {
         setIsValid={setIsPersonalValid}
         setIsLoading={setIsPersonalLoading}
         setIsNewData={setIsNewPersonal}
-        userId={auth.id}
       />
       {deliveryMethod !== 'pick-up' &&
         <>
@@ -206,7 +203,6 @@ function DeliveryStep() {
           setIsValid={setIsAddressValid}
           setIsLoading={setIsAddressLoading}
           setIsNewData={setIsNewAddress}
-          userId={auth.id}
         />
         </>
       }

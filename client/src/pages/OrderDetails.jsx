@@ -1,7 +1,7 @@
 // Hooks
 import { Navigate, useParams } from 'react-router-dom';
 import { useEffect, useRef } from 'react';
-import useFetchOrderById from '@hooks/useFetchOrderById';
+import useFetchData from '@hooks/useFetchData';
 import useGetEssentialOrderEntries from '@hooks/useGetEssentialOrderEntries';
 import useCalcPriceFractions from '@hooks/useCalcPriceFractions';
 
@@ -23,7 +23,7 @@ const orderIdStyles = css`
 function OrderDetails() {
   const titleRef = useRef();
   const { id: orderId } = useParams();
-  const { orderData, isLoading, error } = useFetchOrderById(orderId);
+  const { dataList: orderData, isLoading, error } = useFetchData(`/orders/${orderId}`);
 
   const {
     personalEntries,

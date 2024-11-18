@@ -1,13 +1,11 @@
-import useFetchData from '@hooks/useFetchData';
+import useFetchFromStore from '@hooks/useFetchFromStore';
 import CategoryDisplay from '@components/CategoryDisplay';
 import HeroBanner from '@banners/HeroBanner';
 import Loader from '@components/ui/Loader';
 import ServerError from '@components/ui/ServerError';
 
-const DATA_URL = 'https://fakestoreapi.com/products';
-
 function Shopping() {
-  const { dataList, isLoading, error } = useFetchData(DATA_URL);
+  const { dataList, isLoading, error } = useFetchFromStore('/products');
   
   if (isLoading) return <Loader />
   if (error) return <ServerError />
