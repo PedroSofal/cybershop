@@ -44,7 +44,7 @@ async function validateUserCredentials(req, res, next) {
 
   const user = router.db.get('users').find({ username }).value();
   console.log('User found:', user);
-  console.log('Router.db', router.db);
+  console.log('Users route', router.db.get('users'));
   
   if (!user) {
     return res.status(403).json({ message: 'Usuário não encontrado' });
