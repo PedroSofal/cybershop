@@ -97,7 +97,7 @@ server.post('/auth/login', validateUserCredentials, async (req, res) => {
   res.cookie('refreshToken', refreshToken, {
     httpOnly: true,
     secure: process.env.NODE_ENV === 'production',
-    sameSite: 'strict',
+    sameSite: 'None',
     maxAge: 30 * 24 * 60 * 60 * 1000, // 30 days
   });
 
@@ -106,6 +106,7 @@ server.post('/auth/login', validateUserCredentials, async (req, res) => {
 
 server.post('/auth/refresh-token', (req, res) => {
   const refreshToken = req.cookies.refreshToken; 
+  
   if (!refreshToken) {
     return res.status(401).json({ message: 'Refresh token não fornecido' });
   }
