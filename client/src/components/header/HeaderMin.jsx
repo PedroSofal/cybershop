@@ -6,6 +6,7 @@ import Sticky from '@components/ui/Sticky';
 import Logo from '@components/ui/Logo';
 import NavItem from '@components/header/NavItem';
 import ProfileNavItem from '@components/header/ProfileNavItem';
+import ThemeToggle from '@components/header/ThemeToggle';
 
 // Styles
 import { css } from '@emotion/react';
@@ -26,9 +27,14 @@ function HeaderMin() {
       <div className="content-grid elv-header negative" css={() => headerContainerStyles(isHidden)}>
         <header className="flex jc-between ai-center">
           <Logo styles={css`width: calc(var(--fs-900) * 5);`} />
-          <NavItem linkTo="/perfil">
-            <ProfileNavItem />
-          </NavItem>
+          <div className="flex jc-end gap-200-400">
+            <NavItem>
+              <ThemeToggle />
+            </NavItem>
+            <NavItem linkTo="/perfil">
+              <ProfileNavItem />
+            </NavItem>
+          </div>
         </header>
       </div>
     </Sticky>
