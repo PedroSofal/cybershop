@@ -2,6 +2,7 @@ import { createContext, useContext, useEffect, useState } from 'react';
 import useAuthInterceptor from '@hooks/useAuthInterceptor';
 import CartContext from '@shopping-cart/contexts/CartContext';
 import { dbAPI } from '@services/axios';
+import useFetchData from '@hooks/useFetchData';
 
 const AuthContext = createContext({
   token: null,
@@ -14,6 +15,7 @@ const AuthContext = createContext({
 export function AuthProvider({ children }) {
   const { clearCart } = useContext(CartContext);
   const [ token, setToken ] = useState();
+  const [ username, setUsername ] = useState();
   const [ isAuthLoading, setIsAuthLoading ] = useState(true);
 
   useEffect(() => {
@@ -28,6 +30,17 @@ export function AuthProvider({ children }) {
       }
     })();
   }, []);
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const response = await dbAPI.get('/username');
+        setUsername(response.data.username);
+      } catch {
+        setUsername(null);
+      }
+    })();
+  }, [token]);
 
   useAuthInterceptor(token, setToken);
 
@@ -69,7 +82,8 @@ export function AuthProvider({ children }) {
       setIsAuthLoading,
       logIn,
       logOut,
-      deleteAccount
+      deleteAccount,
+      username
     }}>
       {children}
     </AuthContext.Provider>

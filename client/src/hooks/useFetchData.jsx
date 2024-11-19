@@ -12,7 +12,6 @@ function useFetchData(dataUrl) {
 
     try {
       const response = await dbAPI.get(dataUrl);
-      
       if (response.status === 200) {
         setDataList(response.data);
       }
