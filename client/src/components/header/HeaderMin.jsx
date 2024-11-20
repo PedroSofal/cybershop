@@ -2,7 +2,6 @@
 import useHideOnScroll from '@hooks/useHideOnScroll';
 
 // Components
-import Sticky from '@components/ui/Sticky';
 import Logo from '@components/ui/Logo';
 import NavItem from '@components/header/NavItem';
 import ProfileNavItem from '@components/header/ProfileNavItem';
@@ -10,6 +9,12 @@ import ThemeToggle from '@components/header/ThemeToggle';
 
 // Styles
 import { css } from '@emotion/react';
+
+const stickyStyles = css`
+  position: sticky;
+  top: 0;
+  z-index: 1;
+`;
 
 const headerContainerStyles = (isHidden) => css`
   position: relative;
@@ -23,7 +28,7 @@ function HeaderMin() {
   const isHidden = useHideOnScroll();
 
   return (
-    <Sticky>
+    <div css={stickyStyles}>
       <div className="content-grid elv-header negative" css={() => headerContainerStyles(isHidden)}>
         <header className="flex jc-between ai-center">
           <Logo styles={css`width: calc(var(--fs-900) * 5);`} />
@@ -37,7 +42,7 @@ function HeaderMin() {
           </div>
         </header>
       </div>
-    </Sticky>
+    </div>
   );
 }
 

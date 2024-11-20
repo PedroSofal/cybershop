@@ -5,26 +5,22 @@ import { useContext } from 'react';
 import CartContext from '@shopping-cart/contexts/CartContext';
 
 // Components
-import EmptyPreview from '@components/ui/EmptyPreview';
-import ProductListMin from '@components/ProductListMin';
+import ProductListMin from '@showcase/components/ProductListMin';
 
 function CartPreview() {
   const { cartItems } = useContext(CartContext);
 
   return (
-    (cartItems.length === 0
-      ? (
-        <EmptyPreview>
-          <p>Seu carrinho está vazio</p>
-        </EmptyPreview>
-      ) : (
-        <ProductListMin
-          products={cartItems}
-          seeMoreText="Ver Carrinho"
-          seeMoreLink="/meu-carrinho"
-        />
-      )
-    )
+    <ProductListMin
+      emptyState={
+        cartItems.length === 0
+          ? <p>Seu carrinho está vazio</p>
+          : null
+      }
+      products={cartItems}
+      seeMoreText="Ver Carrinho"
+      seeMoreLink="/meu-carrinho"
+    />
   );
 }
 

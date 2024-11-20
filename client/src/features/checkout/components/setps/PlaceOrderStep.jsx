@@ -7,7 +7,7 @@ import useGetEssentialOrderEntries from '@hooks/useGetEssentialOrderEntries';
 import CheckoutContext from '@checkout/contexts/CheckoutContext';
 
 // Components
-import FormFooter from '@forms/FormFooter';
+import FormFooter from '@components/ui/form/FormFooter';
 import PayButton from '@checkout/components/PayButton';
 import BackButton from '@checkout/components/BackButton';
 import OrderSummary from '@components/OrderSummary';

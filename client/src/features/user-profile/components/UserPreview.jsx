@@ -3,7 +3,7 @@ import { useContext, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import AuthContext from '@authentication/contexts/AuthContext';
 import CartContext from '@shopping-cart/contexts/CartContext';
-import ConfirmationModal from '@components/ConfirmationModal';
+import ConfirmationModal from '@components/modals/ConfirmationModal';
 import Menu from '@menus/Menu';
 
 function UserPreview() {

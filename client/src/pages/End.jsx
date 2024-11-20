@@ -21,7 +21,7 @@ const subtitleStyles = css`
   color: var(--text-clr-2);
 `;
 
-function SaleCompleted() {
+function End() {
   const titleRef = useRef();
   const location = useLocation();
   const fromCheckout = location?.state?.from === '/checkout';
@@ -100,4 +100,4 @@ function SaleCompleted() {
   }
 }
 
-export default SaleCompleted;
+export default End;

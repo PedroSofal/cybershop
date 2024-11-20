@@ -1,13 +1,18 @@
 // Components
-import CategoryNav from '@components/CategoryNav';
+import CategoryNav from '@components/header/CategoryNav';
 import SearchForm from '@search/components/SearchForm';
 import Logo from '@components/ui/Logo';
-import Sticky from '@components/ui/Sticky';
 import HeaderNav from '@components/header/HeaderNav';
 
 // Styles
 import { css } from '@emotion/react';
 import mq from '@utils/getMediaQueries';
+
+const stickyStyles = css`
+  position: sticky;
+  top: 0;
+  z-index: 1;
+`;
 
 const headerContainerStyles = css`
   position: relative;
@@ -52,7 +57,7 @@ const headerStyles = css`
 
 function Header() {
   return (
-    <Sticky>
+    <div css={stickyStyles}>
       <div className="content-grid elv-header negative" css={headerContainerStyles}>
         <header id="header" css={headerStyles}>
             <section css={css`grid-area: logo;`}>
@@ -67,7 +72,7 @@ function Header() {
         </header>
       </div>
       <CategoryNav />
-    </Sticky>
+    </div>
   );
 }
 

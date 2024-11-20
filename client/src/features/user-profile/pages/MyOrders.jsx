@@ -9,8 +9,8 @@ import PhotoGallery from '@components/ui/PhotoGallery';
 import ServerError from '@components/ui/ServerError';
 import Button from '@buttons/Button';
 import LinkButton from '@buttons/LinkButton';
-import OrderStatus from '@components/OrderStatus';
-import ConfirmationModal from '@components/ConfirmationModal';
+import OrderStatus from '@components/ui/OrderStatus';
+import ConfirmationModal from '@components/modals/ConfirmationModal';
 import SuspendedOnClick from '@components/ui/suspended/SuspendedOnClick';
 import Menu from '@components/ui/menus/Menu';
 

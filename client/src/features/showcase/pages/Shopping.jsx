@@ -1,5 +1,5 @@
 import useFetchFromStore from '@hooks/useFetchFromStore';
-import CategoryDisplay from '@components/CategoryDisplay';
+import CategoryDisplay from '@showcase/components/CategoryDisplay';
 import HeroBanner from '@banners/HeroBanner';
 import Loader from '@components/ui/Loader';
 import ServerError from '@components/ui/ServerError';

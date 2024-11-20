@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import AuthContext from '@authentication/contexts/AuthContext';
-import ProfilePicture from '@user-profile/components/ProfilePicture';
+import ProfilePicture from '@components/ui/ProfilePicture';
 import CircleIconContainer from '@containers/CircleIconContainer';
 import UserPreview from '@user-profile/components/UserPreview';
 import PersonIcon from '@mui/icons-material/PersonOutlined';

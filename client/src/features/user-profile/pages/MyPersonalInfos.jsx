@@ -4,8 +4,8 @@ import useForm from '@hooks/useForm';
 import useInitializeData from '@hooks/useInitializeData';
 
 // Components
-import Form from '@forms/Form';
-import FormBody from '@forms/FormBody';
+import Form from '@components/ui/form/Form';
+import FormBody from '@components/ui/form/FormBody';
 import ServerError from '@components/ui/ServerError';
 
 // Utilities

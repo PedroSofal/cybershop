@@ -6,7 +6,7 @@ import CartContext from '@shopping-cart/contexts/CartContext';
 
 // Components
 import Button from '@buttons/Button';
-import ConfirmationModal from '@components/ConfirmationModal';
+import ConfirmationModal from '@components/modals/ConfirmationModal';
 
 // Assets
 import { KeyboardDoubleArrowLeft, KeyboardDoubleArrowRight, RemoveShoppingCart } from '@mui/icons-material';

@@ -1,12 +1,12 @@
 import Home from '@pages/Home';
-import ProductPage from '@pages/ProductPage';
-import Shopping from '@pages/Shopping';
-import ShoppingCart from '@shopping-cart/pages/ShoppingCart';
+import ProductPage from '@showcase/pages/ProductPage';
+import Shopping from '@showcase/pages/Shopping';
+import ShoppingCart from '@components/ui/ShoppingCart';
 import Register from '@authentication/pages/Register';
 import Login from '@authentication/pages/Login';
 import Layout from '@layouts/Layout';
 import Checkout from '@checkout/pages/Checkout';
-import SaleCompleted from '@checkout/pages/SaleCompleted';
+import End from '@pages/End';
 import ProfilePage from '@user-profile/pages/ProfilePage';
 import RequireAuth from '@authentication/components/RequireAuth';
 import MyOrders from '@user-profile/pages/MyOrders';
@@ -14,10 +14,10 @@ import Settings from '@user-profile/pages/Settings';
 import MyAddresses from '@user-profile/pages/MyAddresses';
 import MyCards from '@user-profile/pages/MyCards';
 import MyPersonalInfos from '@user-profile/pages/MyPersonalInfos';
-import OrderDetails from '@pages/OrderDetails';
+import OrderDetails from '@user-profile/pages/OrderDetails';
 import SearchResults from '@search/pages/SearchResults';
-import Error404 from '@pages/Error404';
-import Error403 from '@pages/Error403';
+import Error404 from '@error-handling/pages/Error404';
+import Error403 from '@error-handling/pages/Error403';
 
 import { CheckoutProvider } from '@checkout/contexts/CheckoutContext';
 
@@ -61,7 +61,7 @@ const routes = [
           },
           {
             path: '/obrigado',
-            element: <SaleCompleted />
+            element: <End />
           },
           {
             path: '/perfil/pedidos/:id',

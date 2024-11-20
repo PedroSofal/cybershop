@@ -1,6 +1,6 @@
 import { useState, memo } from 'react';
 import useUserInputState from '@hooks/useUserInputState';
-import Label from "@forms/Label";
+import Label from "@components/ui/form/Label";
 import { css } from '@emotion/react';
 
 const fieldStyles = css`

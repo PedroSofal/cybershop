@@ -9,10 +9,10 @@ import useHandleGenericInputChange from '@hooks/useHandleGenericInputChange';
 import CheckoutContext from '@checkout/contexts/CheckoutContext';
 
 // Components
-import Form from '@forms/Form';
-import FormHeader from '@forms/FormHeader';
-import FormBody from '@forms/FormBody';
-import FormFooter from '@forms/FormFooter';
+import Form from '@components/ui/form/Form';
+import FormHeader from '@components/ui/form/FormHeader';
+import FormBody from '@components/ui/form/FormBody';
+import FormFooter from '@components/ui/form/FormFooter';
 import Button from '@buttons/Button';
 import BackButton from '@checkout/components/BackButton';
 import PaymentOptions from '@checkout/components/PaymentOptions'

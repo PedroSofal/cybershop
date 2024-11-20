@@ -22,7 +22,9 @@
       "@checkout/*": ["features/checkout/*"],
       "@shopping-cart/*": ["features/shopping-cart/*"],
       "@user-profile/*": ["features/user-profile/*"],
-      "@search/*": ["features/search/*"]
+      "@search/*": ["features/search/*"],
+      "@showcase/*": ["features/showcase/*"],
+      "@error-handling/*": ["features/error-handling/*"]
     }
   },
   "include": ["src"]

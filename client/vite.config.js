@@ -43,6 +43,8 @@ export default defineConfig({
       '@shopping-cart': path.resolve(__dirname, 'src/features/shopping-cart'),
       '@user-profile': path.resolve(__dirname, 'src/features/user-profile'),
       '@search': path.resolve(__dirname, 'src/features/search'),
+      '@showcase': path.resolve(__dirname, 'src/features/showcase'),
+      '@error-handling': path.resolve(__dirname, 'src/features/error-handling'),
     },
   },
   server: {

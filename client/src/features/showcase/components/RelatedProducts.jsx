@@ -1,5 +1,5 @@
 import useFetchFromStore from '@hooks/useFetchFromStore';
-import ProductList from '@components/ProductList';
+import ProductList from '@showcase/components/ProductList';
 import Loader from '@components/ui/Loader';
 import ServerError from '@components/ui/ServerError';
 

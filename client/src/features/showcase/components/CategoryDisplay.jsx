@@ -3,7 +3,7 @@ import { Navigate, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
 // Components
-import ProductList from '@components/ProductList';
+import ProductList from '@showcase/components/ProductList';
 
 // Data
 import categories from '@data/categories';

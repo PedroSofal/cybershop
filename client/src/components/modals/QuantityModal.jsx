@@ -1,6 +1,6 @@
 import CartContext from '@shopping-cart/contexts/CartContext';
 import Button from '@buttons/Button';
-import QuantityForm from '@components/QuantityForm';
+import QuantityForm from '@components/forms/QuantityForm';
 import { css } from '@emotion/react';
 import { useContext, useState } from 'react';
 

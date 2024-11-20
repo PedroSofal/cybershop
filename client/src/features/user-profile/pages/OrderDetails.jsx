@@ -8,7 +8,7 @@ import useCalcPriceFractions from '@hooks/useCalcPriceFractions';
 // Components
 import OrderSummary from '@components/OrderSummary';
 import Loader from '@components/ui/Loader';
-import OrderStatus from '@components/OrderStatus';
+import OrderStatus from '@components/ui/OrderStatus';
 import ServerError from '@components/ui/ServerError';
 
 // Styles

@@ -7,9 +7,9 @@ import useHandleGenericInputChange from '@hooks/useHandleGenericInputChange';
 import useHandleZipCodeChange from '@hooks/useHandleZipCodeChange';
 
 // Complements
-import Form from '@forms/Form';
-import FormHeader from '@forms/FormHeader';
-import FormBody from '@forms/FormBody';
+import Form from '@components/ui/form/Form';
+import FormHeader from '@components/ui/form/FormHeader';
+import FormBody from '@components/ui/form/FormBody';
 import Button from '@buttons/Button';
 import EmptyList from '@components/EmptyList';
 import ServerError from '@components/ui/ServerError';

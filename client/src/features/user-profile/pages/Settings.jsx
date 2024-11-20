@@ -3,7 +3,7 @@ import { useContext, useEffect, useRef } from 'react';
 
 // Components
 import Button from '@buttons/Button';
-import ConfirmationModal from '@components/ConfirmationModal';
+import ConfirmationModal from '@components/modals/ConfirmationModal';
 
 // Utilities
 import { createPortal } from "react-dom";

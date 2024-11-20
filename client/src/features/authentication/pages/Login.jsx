@@ -7,8 +7,8 @@ import useForm from '@hooks/useForm';
 import AuthContext from '@authentication/contexts/AuthContext';
 
 // Components
-import Form from '@forms/Form';
-import FormBody from '@forms/FormBody';
+import Form from '@components/ui/form/Form';
+import FormBody from '@components/ui/form/FormBody';
 import UnderText from '@authentication/components/UnderText';
 import { Link } from 'react-router-dom';
 

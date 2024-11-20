@@ -1,4 +1,4 @@
-import Button from './ui/buttons/Button';
+import Button from '@components/ui/buttons/Button';
 import SquareNumberInput from '@inputs/SquareNumberInput';
 import { Add, Remove } from '@mui/icons-material';
 import { css } from '@emotion/react';

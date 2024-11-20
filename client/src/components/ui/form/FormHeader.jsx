@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 
 // Components
 import Button from '@buttons/Button';
-import DataSelector from '@forms/DataSelector';
+import DataSelector from '@components/ui/form/DataSelector';
 
 // API
 import { dbAPI } from '@services/axios';

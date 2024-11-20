@@ -6,7 +6,7 @@ import { useRef, useState } from 'react';
 import ProductImage from '@components/ui/ProductImage';
 import Price from '@components/ui/Price';
 import Button from '@buttons/Button';
-import QuantityModal from '@components/QuantityModal';
+import QuantityModal from '@components/modals/QuantityModal';
 
 // Utilities
 import { createPortal } from "react-dom";

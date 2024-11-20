@@ -6,15 +6,15 @@ import { useNavigate } from 'react-router-dom';
 import CartContext from '@shopping-cart/contexts/CartContext';
 
 // Components
-import QuantityForm from '@components/QuantityForm';
+import QuantityForm from '@components/forms/QuantityForm';
 import ProductImage from '@components/ui/ProductImage';
 import Button from '@components/ui/buttons/Button';
 import Price from '@components/ui/Price';
 import GlassContainer from '@containers/GlassContainer';
 import SuspendedOnClick from '@components/ui/suspended/SuspendedOnClick';
 import Menu from '@menus/Menu';
-import QuantityModal from '@components/QuantityModal';
-import ConfirmationModal from '@components/ConfirmationModal';
+import QuantityModal from '@components/modals/QuantityModal';
+import ConfirmationModal from '@components/modals/ConfirmationModal';
 
 // Utilities
 import { createPortal } from "react-dom";

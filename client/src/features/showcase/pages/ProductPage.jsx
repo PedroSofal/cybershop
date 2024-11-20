@@ -8,15 +8,15 @@ import CartContext from '@shopping-cart/contexts/CartContext';
 import ShippingContext from '@contexts/ShippingContext';
 
 // Components
-import QuantityForm from '@components/QuantityForm';
+import QuantityForm from '@components/forms/QuantityForm';
 import Button from '@buttons/Button';
 import ProductImage from '@components/ui/ProductImage';
 import Rating from '@components/ui/Rating';
 import Price from '@components/ui/Price';
-import PaymentMethods from '@components/ui/PaymentMethods';
-import ZipCodeForm from '@components/ZipCodeForm';
-import RelatedProducts from '@components/RelatedProducts';
-import ConfirmationModal from '@components/ConfirmationModal';
+import PaymentMethods from '@showcase/components/PaymentMethods';
+import ZipCodeForm from '@components/forms/ZipCodeForm';
+import RelatedProducts from '@showcase/components/RelatedProducts';
+import ConfirmationModal from '@components/modals/ConfirmationModal';
 import Loader from '@components/ui/Loader';
 import ServerError from '@components/ui/ServerError';
 import BannerSuperWide from '@banners/BannerSuperWide';

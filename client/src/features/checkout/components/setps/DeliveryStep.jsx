@@ -10,13 +10,13 @@ import useHandleZipCodeChange from '@hooks/useHandleZipCodeChange';
 import CheckoutContext from '@checkout/contexts/CheckoutContext';
 
 // Components
-import Form from '@forms/Form';
-import FormBody from '@forms/FormBody';
-import FormFooter from '@forms/FormFooter';
-import Fieldset from '@forms/Fieldset';
+import Form from '@components/ui/form/Form';
+import FormBody from '@components/ui/form/FormBody';
+import FormFooter from '@components/ui/form/FormFooter';
+import Fieldset from '@components/ui/form/Fieldset';
 import Button from '@buttons/Button';
 import BackButton from '@checkout/components/BackButton';
-import FormHeader from '@forms/FormHeader';
+import FormHeader from '@components/ui/form/FormHeader';
 
 // Utilities
 import getFieldset from '@utils/getFieldset';

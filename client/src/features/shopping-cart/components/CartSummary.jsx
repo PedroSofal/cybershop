@@ -5,9 +5,6 @@ import useCalcPriceFractions from '@hooks/useCalcPriceFractions';
 // Contexts
 import CartContext from '@shopping-cart/contexts/CartContext';
 
-// Components
-import PriceFraction from '@components/ui/PriceFraction';
-
 // Utilities
 import formatPriceToBRL from '@utils/formatPriceToBRL';
 
@@ -42,6 +39,12 @@ const summaryListStyles = css`
   }
 `;
 
+const priceStyles = (bold) => css`
+  font-weight: ${bold ? 600 : 400};
+  border-radius: var(--border-radius);
+  padding: var(--ws-200) var(--ws-400);
+`;
+
 function CartSummary({ deliveryMethod }) {
   const { cartItems } = useContext(CartContext);
   const { subtotal, discount, freight, total } = useCalcPriceFractions(cartItems, deliveryMethod);
@@ -56,19 +59,31 @@ function CartSummary({ deliveryMethod }) {
       <h2 id="priceSummary" className="offscreen">Composição do Preço</h2>
       <ul css={summaryListStyles}>
         <li>
-          <PriceFraction label="Subtotal:" fractionValue={formattedSubtotal} />
+          <PriceFraction label="Subtotal:" value={formattedSubtotal} />
         </li>
         <li>
-          <PriceFraction label="Desconto:" fractionValue={formattedDiscount} />
+          <PriceFraction label="Desconto:" value={formattedDiscount} />
         </li>
         <li>
-          <PriceFraction label="Frete:" fractionValue={formattedFreight} />
+          <PriceFraction label="Frete:" value={formattedFreight} />
         </li>
         <li>
-          <PriceFraction label="Total:" fractionValue={formattedTotal} bold={true} />
+          <PriceFraction label="Total:" value={formattedTotal} bold={true} />
         </li>
       </ul>
     </section>
+  );
+}
+
+function PriceFraction({ label, value, bold }) {
+  return (
+    <p className="flex ai-center gap-400">
+      <span className="text-clr-2"
+      >{label}</span>
+      
+      <span className="elv" css={() => priceStyles(bold)}
+      >{value}</span>
+    </p>
   );
 }
 

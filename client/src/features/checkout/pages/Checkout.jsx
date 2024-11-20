@@ -8,9 +8,9 @@ import CheckoutContext from '@checkout/contexts/CheckoutContext';
 // Components
 import Progress from '@checkout/components/Progress';
 import SideCheckoutSummary from '@checkout/components/SideCheckoutSummary';
-import DeliveryStep from '@checkout/components/DeliveryStep';
-import PaymentStep from '@checkout/components/PaymentStep';
-import PlaceOrderStep from '@checkout/components/PlaceOrderStep';
+import DeliveryStep from '@checkout/components/setps/DeliveryStep';
+import PaymentStep from '@checkout/components/setps/PaymentStep';
+import PlaceOrderStep from '@checkout/components/setps/PlaceOrderStep';
 import Loader from '@components/ui/Loader';
 
 // Styles

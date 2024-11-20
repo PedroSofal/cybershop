@@ -2,12 +2,12 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { CartProvider } from '@shopping-cart/contexts/CartContext';
 import { ShippingProvider } from '@contexts/ShippingContext';
 import { AuthProvider } from '@authentication/contexts/AuthContext';
-import ErrorPage from '@pages/ErrorPage';
+import ErrorPage from '@error-handling/pages/ErrorPage';
 
 import routes from './routes';
 import useTheme from '@hooks/useTheme';
 import Loader from '@components/ui/Loader';
-import ErrorBoundary from '@components/ErrorBoundary';
+import ErrorBoundary from '@error-handling/components/ErrorBoundary';
 
 const router = createBrowserRouter(routes);
 

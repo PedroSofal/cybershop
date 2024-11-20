@@ -1,6 +1,6 @@
 // Components
 import Radio from '@inputs/Radio';
-import ZipCodeForm from '@components/ZipCodeForm';
+import ZipCodeForm from '@components/forms/ZipCodeForm';
 
 // Styles
 import { css } from '@emotion/react';

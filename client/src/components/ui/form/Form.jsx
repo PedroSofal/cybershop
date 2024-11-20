@@ -1,9 +1,9 @@
 import { useEffect, useRef } from 'react';
 import StandardContainer from '@containers/StandardContainer';
-import FormFooter from '@forms/FormFooter';
-import ErrMsg from '@forms/ErrMsg';
+import FormFooter from '@components/ui/form/FormFooter';
+import ErrMsg from '@components/ui/form/ErrMsg';
 import Button from '@buttons/Button';
-import FormLogo from '@forms/FormLogo';
+import FormLogo from '@components/ui/form/FormLogo';
 
 function Form({
   onSubmit,

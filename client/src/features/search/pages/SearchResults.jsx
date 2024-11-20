@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import useSearch from '@search/hooks/useSearch';
 
 // Components
-import ProductList from '@components/ProductList';
+import ProductList from '@showcase/components/ProductList';
 import Loader from '@components/ui/Loader';
 import ScreenContainer from '@containers/ScreenContainer';
 

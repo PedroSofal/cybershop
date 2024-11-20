@@ -8,8 +8,8 @@ import AuthContext from '@authentication/contexts/AuthContext';
 
 // Components
 import StandardContainer from '@containers/StandardContainer';
-import Form from '@forms/Form';
-import FormBody from '@forms/FormBody';
+import Form from '@components/ui/form/Form';
+import FormBody from '@components/ui/form/FormBody';
 import Button from '@buttons/Button';
 import UnderText from '@authentication/components/UnderText';
 import { Link } from 'react-router-dom';

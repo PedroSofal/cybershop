@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import Label from "@forms/Label";
+import Label from "@components/ui/form/Label";
 import { css } from '@emotion/react';
 
 const style = css`

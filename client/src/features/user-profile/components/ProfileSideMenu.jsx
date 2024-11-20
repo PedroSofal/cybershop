@@ -1,6 +1,6 @@
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useEffect, useRef, useState } from 'react';
-import ProfilePicture from '@user-profile/components/ProfilePicture';
+import ProfilePicture from '@components/ui/ProfilePicture';
 import Menu from '@menus/Menu';
 import { Close } from '@mui/icons-material';
 import { css } from '@emotion/react';
