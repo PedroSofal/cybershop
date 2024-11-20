@@ -18,6 +18,7 @@
     1fr
   ;
   row-gap: var(--ws-500-700);
+  flex-grow: 1;
 }
 
 .content-grid > * {

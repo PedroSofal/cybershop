@@ -1,4 +1,3 @@
-import { css } from '@emotion/react';
 import { useEffect, useRef } from 'react';
 
 function EmptyList({ title, children }) {
@@ -10,8 +9,7 @@ function EmptyList({ title, children }) {
 
   return (
     <div
-      className="flex-column ai-center jc-center gap-600"
-      css={css`padding-block: var(--ws-800); height: 100%;`}
+      className="grid pi-center pc-center gap-600 h-100"
     >
       <h1 tabIndex={-1} ref={titleRef} className="text-center">{title}</h1>
       {children}

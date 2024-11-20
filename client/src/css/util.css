@@ -1,5 +1,8 @@
 .pos-relative { position: relative; }
 
+.h-100 { height: 100%; }
+.w-100 { width: 100%; }
+
 .display-contents { display: contents; }
 
 .grid { display: grid; }
@@ -9,11 +12,14 @@
 
 .ai-center { align-items: center; }
 .ai-end { align-items: end; }
+.ac-start { align-items: start; }
 .jc-center { justify-content: center; }
 .jc-end { justify-content: end; }
 .jc-between { justify-content: space-between; }
 .jc-evenly { justify-content: space-evenly; }
 .ji-center { justify-items: center; }
+.pc-center { place-content: center; }
+.pi-center { place-items: center; }
 
 .gap-050 { gap: var(--ws-050); }
 .gap-100 { gap: var(--ws-100); }

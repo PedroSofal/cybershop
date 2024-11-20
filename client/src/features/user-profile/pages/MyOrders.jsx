@@ -6,7 +6,6 @@ import useFetchData from '@hooks/useFetchData';
 // Components
 import EmptyList from '@components/EmptyList';
 import PhotoGallery from '@components/ui/PhotoGallery';
-import Loader from '@components/ui/Loader';
 import ServerError from '@components/ui/ServerError';
 import Button from '@buttons/Button';
 import LinkButton from '@buttons/LinkButton';
@@ -27,6 +26,8 @@ import { Delete, MoreVert } from '@mui/icons-material';
 
 // Styles
 import { css } from '@emotion/react';
+import { CSSTransition } from 'react-transition-group';
+import '@user-profile/css/transitions.css';
 
 const DATA_URL = '/data/orders';
 
@@ -84,6 +85,9 @@ const detailButtonStyles = css`
 function MyOrders() {
   const dialogRef = useRef();
   const firstOrderRef = useRef();
+  const orderListTransitionRef = useRef();
+  const emptyListTransitionRef = useRef();
+
   const navigate = useNavigate();
   
   const {
@@ -123,64 +127,83 @@ function MyOrders() {
     navigate(`/perfil/pedidos/${orderId}`);
   }
 
-  if (isLoading) return <Loader />
   if (error || fetchError) return <ServerError />
-
-  if (orderList.length === 0) {
-    return (
-      <EmptyList title="Você ainda não finalizou nenhum pedido">
-        <Button main onClick={() => navigate('/categorias/vestuario-masculino')}>Ir às compras</Button>
-      </EmptyList>
-    );
-  }
 
   return (
     <>
-    <h1 className="page-title">Meus pedidos</h1>
-    
-    <ol className="flex-column gap-400" aria-label="histórico de pedidos em ordem cronológica">
-      {orderList.map((order, index) => (
-        <li
-          key={index}
-          className="elv"
-          css={itemStyles}
-        >
-          <PhotoGallery size="min(50px, 5vw)">
-            {order.products.map((product, index) => (
-              index < 4 && <img key={index} src={product.image} alt="" />
+    <CSSTransition
+      in={orderList.length > 0}
+      timeout={300}
+      classNames="fade"
+      nodeRef={orderListTransitionRef}
+      unmountOnExit
+    >
+      {() => (
+        <div ref={orderListTransitionRef}>
+          <h1 className="page-title">Meus pedidos</h1>
+          
+          <ol className="flex-column gap-400" aria-label="histórico de pedidos em ordem cronológica">
+            {orderList.map((order, index) => (
+              <li
+                key={index}
+                className="elv"
+                css={itemStyles}
+              >
+                <PhotoGallery size="min(50px, 5vw)">
+                  {order.products.map((product, index) => (
+                    index < 4 && <img key={index} src={product.image} alt="" />
+                  ))}
+                </PhotoGallery>
+                <div css={mainInfosStyles}>
+                  <p className="flex-column" tabIndex={-1} ref={index === 0 ? firstOrderRef : null}>
+                    <span css={smallTextStyles}>Criado em</span>
+                    <span>{formatDate(order.created)} às {formatHour(order.created)}</span>
+                  </p>
+                  <p className="text-clr-3" css={smallTextStyles}>ID do pedido: {order.id}</p>
+                </div>
+                <div className="desktop-only">
+                  <Button
+                    onClick={() => handleDeleteClick(order.id)}
+                    ariaLabel="excluir pedido"
+                    icon={<Delete />}
+                  ></Button>
+                </div>
+                <OrderStatus status={order.status} />
+                <div css={css`justify-self: end;`} className="desktop-only">
+                  <LinkButton
+                    styles={detailButtonStyles}
+                    onClick={() => handleOrderClick(order.id)}
+                  >Ver detalhes</LinkButton>
+                </div>
+                <div id="moreOptions" css={css`justify-self: end; display: none;`}>
+                  <MoreOptions
+                    order={order}
+                    handleOrderClick={handleOrderClick}
+                    handleDeleteClick={handleDeleteClick}
+                  />
+                </div>
+              </li>
             ))}
-          </PhotoGallery>
-          <div css={mainInfosStyles}>
-            <p className="flex-column" tabIndex={-1} ref={index === 0 ? firstOrderRef : null}>
-              <span css={smallTextStyles}>Criado em</span>
-              <span>{formatDate(order.created)} às {formatHour(order.created)}</span>
-            </p>
-            <p className="text-clr-3" css={smallTextStyles}>ID do pedido: {order.id}</p>
-          </div>
-          <div className="desktop-only">
-            <Button
-              onClick={() => handleDeleteClick(order.id)}
-              ariaLabel="excluir pedido"
-              icon={<Delete />}
-            ></Button>
-          </div>
-          <OrderStatus status={order.status} />
-          <div css={css`justify-self: end;`} className="desktop-only">
-            <LinkButton
-              styles={detailButtonStyles}
-              onClick={() => handleOrderClick(order.id)}
-            >Ver detalhes</LinkButton>
-          </div>
-          <div id="moreOptions" css={css`justify-self: end; display: none;`}>
-            <MoreOptions
-              order={order}
-              handleOrderClick={handleOrderClick}
-              handleDeleteClick={handleDeleteClick}
-            />
-          </div>
-        </li>
-      ))}
-    </ol>
+          </ol>
+        </div>
+      )}
+    </CSSTransition>
+
+    <CSSTransition
+      in={orderList.length === 0 && !isLoading}
+      timeout={300}
+      classNames="fade"
+      nodeRef={emptyListTransitionRef}
+      unmountOnExit
+    >
+      {() => (
+        <div ref={emptyListTransitionRef} className="h-100 w-100">
+          <EmptyList title="Você ainda não finalizou nenhum pedido">
+            <Button main onClick={() => navigate('/categorias/vestuario-masculino')}>Ir às compras</Button>
+          </EmptyList>
+        </div>
+      )}
+    </CSSTransition>
 
     {createPortal(
       <ConfirmationModal
