@@ -48,6 +48,8 @@ function OrderDetails() {
 
   if (error?.status == 404) {
     return <Navigate to='/404' replace />
+  } else if (error?.status === 403) {
+    return <Navigate to='/403' replace />
   } else if (error) {
     <ServerError />
   }

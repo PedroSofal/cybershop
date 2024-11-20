@@ -17,6 +17,7 @@ import MyPersonalInfos from '@user-profile/pages/MyPersonalInfos';
 import OrderDetails from '@pages/OrderDetails';
 import SearchResults from '@search/pages/SearchResults';
 import Error404 from '@pages/Error404';
+import Error403 from '@pages/Error403';
 
 import { CheckoutProvider } from '@checkout/contexts/CheckoutContext';
 
@@ -112,6 +113,10 @@ const routes = [
   {
     path: '/404',
     element: <Error404 />
+  },
+  {
+    path: '/403',
+    element: <Error403 />
   }
 ];
 
