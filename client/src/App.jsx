@@ -9,7 +9,16 @@ import useTheme from '@hooks/useTheme';
 import Loader from '@components/ui/Loader';
 import ErrorBoundary from '@error-handling/components/ErrorBoundary';
 
-const router = createBrowserRouter(routes);
+const router = createBrowserRouter(routes, {
+  future: {
+    v7_startTransition: true,
+    v7_relativeSplatPath: true,
+    v7_fetcherPersist: true,
+    v7_normalizeFormMethod: true,
+    v7_partialHydration: true,
+    v7_skipActionErrorRevalidation: true,
+  },
+});
 
 function App() {
   const { isLoading } = useTheme();
