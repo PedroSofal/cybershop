@@ -1,7 +1,7 @@
 import { css } from '@emotion/react';
 
 const buttonStyles = css`
-  padding: var(--input-padding);
+  padding: var(--button-padding);
   border-radius: var(--border-radius);
   font-size: var(--input-fs);
   transition: var(--input-transition);
@@ -11,7 +11,7 @@ const iconButtonStyles = (children) => css`
   display: flex;
   align-items: center;
   gap: ${children ? 'var(--ws-100)' : 0};
-  padding: var(--ws-300);
+  padding: var(--icon-button-padding);
 
   .btn-icon {
     display: inline-flex;

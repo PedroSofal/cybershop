@@ -40,5 +40,8 @@
   --input-transition: background-color var(--transition-1), box-shadow var(--transition-1);
   --input-error-outline: 2px solid var(--error-clr);
 
+  --button-padding: max(var(--ws-300), 0.8rem) var(--ws-500);
+  --icon-button-padding: max(var(--ws-300), 0.8rem);
+
   --container-padding: var(--ws-600) var(--ws-400-700);
 }
