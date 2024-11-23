@@ -67,6 +67,12 @@ function SearchForm() {
     }
   }
 
+  function handleInputKeyDown(e) {
+    if (e.key === 'Escape') {
+      setIsPreviewVisible(false);
+    }
+  }
+
   return (
     <div className="pos-relative">
       <form css={formStyles} role="search">
@@ -81,6 +87,7 @@ function SearchForm() {
           onChange={(e) => setSearchTerm(e.target.value)}
           onFocus={() => setSearchFocus(true)}
           onBlur={() => setTimeout(() => setSearchFocus(false), 100)}
+          onKeyDown={handleInputKeyDown}
           aria-haspopup="listbox"
         />
         <button
