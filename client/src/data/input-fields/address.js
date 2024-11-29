@@ -47,6 +47,7 @@ const fields = [
     type: 'text',
     placeholder: 'ex: Casa',
     required: true,
+    column: 0,
   },
   {
     id: 'street',
@@ -57,6 +58,7 @@ const fields = [
     minLength: 3,
     ariaDescribedBy: 'streetNote',
     description: 'Digite um endereço válido.',
+    column: 0,
     isValid: (street) => street.length >= 3,
   },
   {
@@ -65,6 +67,7 @@ const fields = [
     type: 'text',
     placeholder: 'ex: nº 19946',
     required: false,
+    column: 0,
   },
   {
     id: 'neighborhood',
@@ -72,6 +75,7 @@ const fields = [
     type: 'text',
     placeholder: 'ex: Leste',
     required: true,
+    column: 1,
   },
   {
     id: 'reference',
@@ -79,6 +83,7 @@ const fields = [
     type: 'text',
     placeholder: 'ex: Próximo à Av. 8 Mile',
     required: false,
+    column: 0,
   },
   {
     id: 'city',
@@ -86,12 +91,14 @@ const fields = [
     type: 'text',
     placeholder: 'ex: Detroit',
     required: true,
+    column: 0,
   },
   {
     id: 'state',
     label: 'Estado:',
     type: 'select',
     required: true,
+    column: 0,
     options: [
       { value: '', text: 'Selecione' },
       ...STATE_OPTIONS
@@ -108,6 +115,7 @@ const fields = [
     inputMode: 'numeric',
     ariaDescribedBy: 'zipCodeNote',
     description: 'Digite um CEP válido',
+    column: 1,
     isValid: (zipCode) => /^\d{2}[.]\d{3}[-]\d{3}$/.test(zipCode),
     autoFormat: (zipCode) => formatZipCode(zipCode),
   },

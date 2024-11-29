@@ -24,6 +24,7 @@ const fields = [
     required: true,
     ariaDescribedBy: 'firstNameNote',
     description: 'Apenas letras são válidas.',
+    column: 0,
     isValid: (firstName) => /^[A-Za-zÀ-ÿ\s]+$/.test(firstName),
   },
   {
@@ -34,6 +35,7 @@ const fields = [
     required: true,
     ariaDescribedBy: 'lastNameNote',
     description: 'Apenas letras são válidas.',
+    column: 1,
     isValid: (lastName) => /^[A-Za-zÀ-ÿ\s]+$/.test(lastName),
   },
   {
@@ -44,6 +46,7 @@ const fields = [
     required: true,
     ariaDescribedBy: 'emailNote',
     description: 'Digite um endereço de e-mail válido.',
+    column: 0,
     isValid: (email) => /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/.test(email),
   },
   {
@@ -55,6 +58,7 @@ const fields = [
     maxLength: 15,
     ariaDescribedBy: 'tel1Note',
     description: 'Digite um número de telefone válido.',
+    column: 0,
     isValid: (tel1) => /^\([1-9]{2}\) (?:[2-8]|9[0-9])[0-9]{3}-[0-9]{4}$/.test(tel1),
     autoFormat: (tel1) => formatPhone(tel1),
   },
@@ -67,6 +71,7 @@ const fields = [
     maxLength: 15,
     ariaDescribedBy: 'tel2Note',
     description: 'Digite um número de telefone válido.',
+    column: 1,
     isValid: (tel2) => /^\([1-9]{2}\) (?:[2-8]|9[0-9])[0-9]{3}-[0-9]{4}$/.test(tel2),
     autoFormat: (tel2) => formatPhone(tel2),
   },

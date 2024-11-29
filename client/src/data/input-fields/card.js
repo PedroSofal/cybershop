@@ -25,6 +25,7 @@ const fields = [
     type: 'text',
     placeholder: 'ex: Visa',
     required: true,
+    column: 0,
   },
   {
     id: 'cardNumber',
@@ -36,6 +37,7 @@ const fields = [
     inputMode: 'numeric',
     ariaDescribedBy: 'cardNumberNote',
     description: 'Digite um número de cartão válido.',
+    column: 0,
     isValid: (cardNumber) => /^(\d{4}[-]){3}\d{4}$/.test(cardNumber),
     autoFormat: (cardNumber) => formatCardNumber(cardNumber),
   },  
@@ -47,6 +49,7 @@ const fields = [
     required: true,
     ariaDescribedBy: 'cardNameNote',
     description: 'Apenas letras e espaços são válidos.',
+    column: 0,
     isValid: (cardName) => /^[A-Za-zÀ-ÿ\s]+$/.test(cardName),
   },  
   {
@@ -59,6 +62,7 @@ const fields = [
     inputMode: 'numeric',
     ariaDescribedBy: 'expDateNote',
     description: 'Digite uma data válida.',
+    column: 0,
     isValid: (expDate) => /^(0[1-9]|1[0-2])\/\d{2}$/.test(expDate),
     autoFormat: (expDate) => formatExpDate(expDate),
   },  
@@ -74,6 +78,7 @@ const fields = [
     autoComplete: 'off',
     ariaDescribedBy: 'cvvNote',
     description: 'O código de segurança precisa ter 3 dígitos.',
+    column: 1,
     isValid: (cvv) => /^\d{3}$/.test(cvv),
   },
 ];

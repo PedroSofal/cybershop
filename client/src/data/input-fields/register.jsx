@@ -15,6 +15,7 @@ const fields = [
       Deve iniciar com uma letra.<br />
       Letras, números, underlines e hífens são aceitos.
       </>,
+    column: 0,
     isValid: (username) => /^[a-zA-Z][a-zA-Z0-9_-]{3,23}$/.test(username),
   },
   {
@@ -36,6 +37,7 @@ const fields = [
       1 número;<br />
       1 caracter especial: ! @ . # $ % *
       </>,
+    column: 0,
     isValid: (password) => /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%*.]).{8,24}$/.test(password),
   },
   {
@@ -46,6 +48,7 @@ const fields = [
     autoComplete: 'off',
     ariaDescribedBy: 'matchNote',
     description: 'Precisa ser igual à senha inserida no campo anterior.',
+    column: 0,
     isValid: (password, match) => password === match,
   },
 ];

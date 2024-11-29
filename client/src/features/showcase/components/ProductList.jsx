@@ -72,7 +72,7 @@ function ProductList({ products, withAddToCart }) {
           <ProductImage
             src={product.image}
             alt={`foto do produto ${product.title}`}
-            height="240px"
+            height="15rem"
             onClick={() => navigate(`/produto/${product.id}`)}
           />
           <div className="flex-column gap-400">

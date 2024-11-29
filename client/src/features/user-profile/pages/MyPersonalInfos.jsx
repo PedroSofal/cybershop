@@ -19,6 +19,12 @@ import { dbAPI } from '@services/axios';
 const DATA_URL = '/data/personal';
 const fields = getFieldset('personal');
 
+const gridAreas = `
+  'firstName lastName'
+  'email email'
+  'tel1 tel2'
+`;
+
 function MyPersonalInfos() {
   const { dataList, isLoading, error, refetch } = useFetchData(DATA_URL);
 
@@ -89,6 +95,7 @@ function MyPersonalInfos() {
       errMsg={errMsg}
     >
       <FormBody
+        gridAreas={gridAreas}
         fields={fields}
         formValues={formValues}
         validations={validations}

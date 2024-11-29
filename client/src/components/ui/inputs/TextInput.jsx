@@ -3,7 +3,8 @@ import useUserInputState from '@hooks/useUserInputState';
 import Label from "@components/ui/form/Label";
 import { css } from '@emotion/react';
 
-const fieldStyles = css`
+const fieldStyles = (gridArea) => css`
+  grid-area: ${gridArea || 'auto'};
   width: 100%;
   
   & input {
@@ -69,6 +70,7 @@ const TextInput = memo(function Component({
   easy,
   ariaDescribedBy,
   description,
+  gridArea,
   finished = () => false,
 }) {
   const [ focus, setFocus ] = useState(false);
@@ -84,7 +86,7 @@ const TextInput = memo(function Component({
   return (
     <div
       className="flex-column gap-050"
-      css={[fieldStyles, alertInvalid && errorStyles]}
+      css={[() => fieldStyles(gridArea), alertInvalid && errorStyles]}
     >
       <Label id={id} label={label} required={required} />
       <div css={css`position: relative;`}>
