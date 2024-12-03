@@ -1,13 +1,14 @@
 import CircleIconContainer from '@containers/CircleIconContainer';
 import SuspendedButton from '@components/ui/suspended/SuspendedButton';
 import { Search } from '@mui/icons-material';
+import { useEffect, useState } from 'react';
 
 function SearchNavItem() {
-  function handleClick() {
-    const searchInput = document.querySelector('#searchInput');
-    const header = document.querySelector('#header');
+  const [ isSearchBarOpen, setIsSearchBarOpen ] = useState(false);
 
-    if (!header.classList.contains('search-visible')) {
+  useEffect(() => {
+    if (isSearchBarOpen) {
+      const searchInput = document.querySelector('#searchInput');
       header.classList.add('search-visible');
       setTimeout(() => {
         searchInput.focus();
@@ -15,11 +16,18 @@ function SearchNavItem() {
     } else {
       header.classList.remove('search-visible');
     }
+  }, [isSearchBarOpen]);
+
+  function handleClick() {
+    const header = document.querySelector('#header');
+    setIsSearchBarOpen(!header.classList.contains('search-visible'));
   }
   
   return (
     <SuspendedButton
-      ariaLabel="pesquisar"
+      ariaLabel="alternar barra de pesquisa"
+      ariaExpanded={isSearchBarOpen}
+      ariaControls="searchInput"
       onClick={handleClick}
     >
       <CircleIconContainer><Search /></CircleIconContainer>

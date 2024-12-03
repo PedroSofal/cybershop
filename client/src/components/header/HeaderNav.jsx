@@ -6,22 +6,26 @@ import NavItem from '@components/header/NavItem';
 
 function HeaderNav() {
   return (
-    <nav>
-      <ul className="flex jc-end gap-200-400">
-        <NavItem>
+    <div className="flex jc-end gap-200-400">
+      <ul className="display-contents">
+        <NavItem id="toggleSearchBarButton">
           <SearchNavItem />
         </NavItem>
         <NavItem>
           <ThemeToggle />
         </NavItem>
-        <NavItem linkTo="/perfil">
-          <ProfileNavItem />
-        </NavItem>
-        <NavItem linkTo="/meu-carrinho">
-          <CartNavItem />
-        </NavItem>
       </ul>
-    </nav>
+      <nav className="display-contents">
+        <ul className="display-contents">
+          <NavItem linkTo="/perfil">
+            <ProfileNavItem />
+          </NavItem>
+          <NavItem linkTo="/meu-carrinho">
+            <CartNavItem />
+          </NavItem>
+        </ul>
+      </nav>
+    </div>
   );
 }
 

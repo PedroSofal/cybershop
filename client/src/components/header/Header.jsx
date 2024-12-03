@@ -31,8 +31,7 @@ const headerStyles = css`
   row-gap: var(--ws-400);
   padding-block: var(--ws-400);
 
-  #navSection > nav > ul > li:first-of-type {
-    margin-right: calc(var(--ws-300) * -1);
+  #toggleSearchBarButton {
     display: none;
   }
 
@@ -48,7 +47,7 @@ const headerStyles = css`
       display: none;
     }
 
-    #navSection > nav > ul > li:first-of-type,
+    #toggleSearchBarButton,
     &.search-visible #searchSection {
       display: block;
     }

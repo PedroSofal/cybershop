@@ -15,7 +15,7 @@ const itemStyles = css`
   }
 `;
 
-function NavItem({ linkTo, children }) {
+function NavItem({ id, linkTo, children }) {
   const location = useLocation();
   const [ isActive, setIsActive ] = useState(false);
 
@@ -25,6 +25,7 @@ function NavItem({ linkTo, children }) {
 
   return (
     <li
+      id={id}
       css={itemStyles}
       className={isActive ? 'elv elv-hover' : 'elv-hover'}
     >

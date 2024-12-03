@@ -1,6 +1,6 @@
 import { css } from '@emotion/react';
 
-const buttonStyles = css`
+const suspendedButtonStyles = css`
   font-size: inherit;
   background-color: transparent;
   cursor: pointer;
@@ -13,17 +13,19 @@ function SuspendedButton({
   ariaLabel,
   ariaHasPopup,
   ariaExpanded,
+  ariaControls,
   children
 }) {
   return (
     <button
       ref={htmlRef}
-      css={buttonStyles}
+      css={suspendedButtonStyles}
       onClick={onClick}
       onMouseUp={onMouseUp}
       aria-label={ariaLabel}
       aria-haspopup={ariaHasPopup}
       aria-expanded={ariaExpanded}
+      aria-controls={ariaControls}
     >
       {children}
     </button>
