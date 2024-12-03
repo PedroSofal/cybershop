@@ -28,7 +28,7 @@ const summaryListStyles = css`
     padding: var(--ws-400-500);
   }
 
-  ${mq('tablet')} {
+  ${mq('mobile')} {
     flex-direction: column;
     flex-wrap: nowrap;
 
